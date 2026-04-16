@@ -1,0 +1,353 @@
+/* ================================================
+   LAYOUT.CSS — Containers, Grid, Section structure
+   ================================================ */
+
+/* ─── CONTAINER ──────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: 860px;
+}
+
+/* ─── SECTION BASE ───────────────────────────── */
+.section {
+  position: relative;
+  padding-block: var(--sp-section);
+  overflow: hidden;
+}
+
+.section--flush {
+  padding-block: 0;
+}
+
+/* ─── DIVIDER LINE ───────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  margin-block: 0;
+}
+
+/* ─── NAV ────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--container-pad);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+}
+
+.nav.is-scrolled {
+  background: rgba(0 27 102 / 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding-block: var(--sp-3);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav__logo-img {
+  height: clamp(22px, 2.5vw, 32px);
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav__links a {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-text);
+  opacity: 0.7;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--c-accent);
+  transition: width 0.3s var(--ease-expo);
+}
+
+.nav__links a:hover {
+  opacity: 1;
+  color: var(--c-blanco);
+}
+
+.nav__links a:hover::after { width: 100%; }
+
+/* Mobile nav — hide links, keep logo + cta */
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+}
+
+/* ─── HERO GRID ──────────────────────────────── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+}
+
+/* ─── SERVICES HORIZONTAL SCROLL ─────────────── */
+.servicios__viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.servicios__track {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sp-6);
+  padding-inline: var(--container-pad);
+  padding-block: var(--sp-8);
+  width: max-content;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  /* El pin GSAP maneja el scroll horizontal en mobile también —
+     el viewport se mantiene overflow: hidden */
+  .servicios__track {
+    padding-inline: var(--sp-4);
+    gap: var(--sp-4);
+  }
+}
+
+/* ─── PAQUETES GRID ──────────────────────────── */
+.paquetes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .paquetes__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+/* ─── REEL GRID ──────────────────────────────── */
+/*
+  Flex layout — las alturas las define el contenido (aspect-ratio),
+  no valores fijos que recorten los videos.
+
+  ┌──────────────────┬──────────┐
+  │   Video Ad       │          │
+  ├──────────────────┤ UGC Avtr │  ← altura = UGC 9:16 en su columna
+  │   Campaign       │          │
+  ├─────────┬────────┴──────────┤
+  │  Reel   │  UGC Avatar 2     │  ← cada uno 9:16 en columna igual
+  │  Social │                   │
+  ├─────────┴───────────────────┤
+  │       E-commerce Spot       │  ← 16:9 ancho completo
+  └─────────────────────────────┘
+*/
+.reel__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+/* Filas horizontales */
+.reel__row {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: stretch;
+}
+
+/* Stack izquierdo de la fila principal (Video Ad + Campaign) */
+.reel__stack {
+  flex: 3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.reel__stack .reel-item {
+  flex: 1;
+  min-height: 0;
+}
+
+/* UGC Avatar — columna derecha fila 1, define la altura de la fila */
+.reel__row--main > .reel-item--tall {
+  flex: 2;
+  min-width: 0;
+  aspect-ratio: 9 / 16;
+}
+
+/* Fila 2: dos verticales iguales */
+.reel__row--pair > .reel-item--tall {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 9 / 16;
+}
+
+/* Fila 3: E-commerce, ancho completo */
+.reel-item--featured {
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .reel__row { flex-direction: column; }
+  .reel__stack { flex: none; }
+  .reel__row--main > .reel-item--tall,
+  .reel__row--pair > .reel-item--tall { flex: none; }
+  .reel__stack .reel-item { aspect-ratio: 16 / 9; }
+}
+
+/* ─── PROCESO STEPS ──────────────────────────── */
+.proceso__steps {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.proceso__steps::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--container-pad) + 3.5rem);
+  top: 2rem;
+  bottom: 2rem;
+  width: 1px;
+  background: var(--c-border);
+}
+
+@media (max-width: 600px) {
+  .proceso__steps::before { display: none; }
+}
+
+/* ─── FOOTER ─────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--c-border);
+  padding: var(--sp-12) var(--container-pad) var(--sp-8);
+}
+
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-8);
+}
+
+.footer__logo {
+  height: clamp(24px, 3vw, 36px);
+  width: auto;
+  align-self: flex-start;
+  object-fit: contain;
+}
+
+.footer__tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  opacity: 0.5;
+}
+
+.footer__mid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-6);
+  padding-block: var(--sp-6);
+  border-block: 1px solid var(--c-border);
+  flex-wrap: wrap;
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.footer__links a {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.footer__links a:hover { opacity: 1; }
+
+.footer__social {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+.footer__social a {
+  opacity: 0.5;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+}
+
+.footer__social a:hover {
+  opacity: 1;
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.footer__bottom {
+  margin-top: var(--sp-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  opacity: 0.4;
+}
+
+.footer__bottom p,
+.footer__bottom em {
+  font-size: var(--fs-xs);
+}
+
+@media (max-width: 600px) {
+  .footer__mid { flex-direction: column; align-items: flex-start; }
+  .footer__bottom { flex-direction: column; }
+}

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coplero — A.I. Content Production Company</title>
+  <meta name="description" content="Productora audiovisual argentina impulsada por IA. Videos publicitarios, UGC, avatares, reels y estrategia de contenido. Alto impacto, velocidad real, calidad de producción.">
+
+  <!-- Open Graph -->
+  <!-- TODO:USER reemplazar og:image con imagen real 1200x630 en /public/og-image.jpg -->
+  <meta property="og:title"       content="Coplero — A.I. Content Production Company">
+  <meta property="og:description" content="Producimos contenido de alto impacto con IA para negocios que necesitan resultados.">
+  <meta property="og:type"        content="website">
+  <meta property="og:image"       content="/og-image.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ─── GRAIN OVERLAY ─── -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- ─── CUSTOM CURSOR ─── -->
+  <div id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+    <svg class="cursor__sol" viewBox="0 0 200 200" fill="currentColor">
+      <circle cx="100" cy="100" r="20"/>
+      <rect x="97" y="26" width="6" height="52" rx="3" transform="rotate(0 100 100)"/>
+      <rect x="97.5" y="32" width="5" height="46" rx="2.5" transform="rotate(22.5 100 100)"/>
+      <rect x="97" y="28" width="6" height="50" rx="3" transform="rotate(45 100 100)"/>
+      <rect x="97.5" y="36" width="5" height="42" rx="2.5" transform="rotate(67.5 100 100)"/>
+      <rect x="97" y="24" width="6" height="54" rx="3" transform="rotate(90 100 100)"/>
+      <rect x="97.5" y="34" width="4.5" height="40" rx="2.25" transform="rotate(112.5 100 100)"/>
+      <rect x="97" y="30" width="6" height="48" rx="3" transform="rotate(135 100 100)"/>
+      <rect x="98" y="38" width="4" height="36" rx="2" transform="rotate(157.5 100 100)"/>
+      <rect x="97" y="26" width="6" height="52" rx="3" transform="rotate(180 100 100)"/>
+      <rect x="97.5" y="32" width="5" height="46" rx="2.5" transform="rotate(202.5 100 100)"/>
+      <rect x="97" y="28" width="6" height="50" rx="3" transform="rotate(225 100 100)"/>
+      <rect x="97.5" y="36" width="4.5" height="42" rx="2.25" transform="rotate(247.5 100 100)"/>
+      <rect x="97" y="24" width="6" height="54" rx="3" transform="rotate(270 100 100)"/>
+      <rect x="97.5" y="34" width="5" height="42" rx="2.5" transform="rotate(292.5 100 100)"/>
+      <rect x="97" y="30" width="6" height="48" rx="3" transform="rotate(315 100 100)"/>
+      <rect x="98" y="38" width="4" height="36" rx="2" transform="rotate(337.5 100 100)"/>
+    </svg>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════ -->
+  <header id="nav" class="nav" role="banner">
+    <a href="#" class="nav__logo" aria-label="Coplero — inicio">
+      <img src="/Coplero.png" alt="Coplero" class="nav__logo-img">
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#reel">Reel</a>
+      <a href="#proceso">Proceso</a>
+    </nav>
+
+    <a href="#agenda"
+       class="btn btn--primary"
+       data-cursor="cta">
+      Agendá una reunión
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════ -->
+    <section id="hero" class="section section--hero" aria-label="Coplero — Inicio">
+
+      <div class="hero__bg" aria-hidden="true">
+        <video class="hero__video"
+               autoplay
+               muted
+               loop
+               playsinline
+               webkit-playsinline
+               preload="auto"
+               disablepictureinpicture
+               disableremoteplayback>
+          <source src="/vids/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">
+          <em>A.I. Content Production Company · desde Argentina</em>
+        </p>
+
+        <h1 class="hero__headline" aria-label="Contenido que vende. Hecho con IA.">
+          <span class="hero__line">Contenido</span>
+          <span class="hero__line hero__line--accent">que <em>vende.</em></span>
+          <span class="hero__line">Hecho con IA.</span>
+        </h1>
+
+        <p class="hero__sub">
+          Producimos videos, UGC, reels y estrategia de contenido con la velocidad y precisión de la inteligencia artificial. Tu marca, en todas partes, sin fricción.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#agenda"
+             class="btn btn--primary btn--xl"
+             data-cursor="cta">
+            Agendá una reunión gratis
+          </a>
+          <a href="https://wa.me/5493875601433?text=Hola%20Coplero%2C%20quiero%20saber%20m%C3%A1s%20sobre%20sus%20servicios."
+             class="btn btn--ghost"
+             target="_blank"
+             rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <span>Hablá por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tags marquee -->
+      <div class="hero__marquee-wrap" aria-hidden="true">
+        <div class="marquee" data-speed="70">
+          <div class="marquee__track">
+            <span>REELS</span><span class="marquee__dot">✦</span>
+            <span>UGC</span><span class="marquee__dot">✦</span>
+            <span>AVATARES IA</span><span class="marquee__dot">✦</span>
+            <span>ESTRATEGIA</span><span class="marquee__dot">✦</span>
+            <span>GUIONIZACIÓN</span><span class="marquee__dot">✦</span>
+            <span>POSTS</span><span class="marquee__dot">✦</span>
+            <span>ADS</span><span class="marquee__dot">✦</span>
+            <span>HISTORIAS</span><span class="marquee__dot">✦</span>
+            <span>VIRAL</span><span class="marquee__dot">✦</span>
+            <span>VIDEOS IA</span><span class="marquee__dot">✦</span>
+            <span>CONTENIDO</span><span class="marquee__dot">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         MANIFESTO
+    ═══════════════════════════════════════════════ -->
+    <section id="manifesto" class="section section--manifesto" aria-label="Manifiesto">
+      <blockquote class="manifesto__quote">
+        <em>No vendemos videos.<br>
+        Vendemos <span class="manifesto__em">atención</span><br>
+        convertida en ventas.</em>
+      </blockquote>
+      <div class="manifesto__body">
+        <p>
+          Coplero nació en Argentina con una convicción: el contenido que vende no se improvisa. Se diseña, se guioniza y se produce con inteligencia — ahora, con IA de vanguardia.
+        </p>
+        <p>
+          Combinamos metodología precisa, tecnología de última generación y ojo creativo para que cada pieza trabaje por tu negocio. No llenamos feeds. Generamos impacto.
+        </p>
+        <p>
+          Velocidad sin sacrificar calidad. Escala sin perder identidad. Resultados que se miden. Eso es Coplero.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SERVICIOS
+    ═══════════════════════════════════════════════ -->
+    <section id="servicios" class="section section--servicios" aria-label="Servicios">
+      <div class="servicios__header">
+        <p class="section-eyebrow"><em>Qué hacemos</em></p>
+        <h2 class="section-title" data-split="chars">Servicios</h2>
+      </div>
+
+      <div class="servicios__viewport">
+        <div class="servicios__track">
+
+          <!-- Card 01 -->
+          <article class="servicio-card" data-animate="fade-up">
+            <span class="servicio-card__num" aria-hidden="true">01</span>
+            <div class="servicio-card__img-wrap" aria-hidden="true">
+              <video class="servicio-card__video" src="/vids/1.mp4"
+                     autoplay muted loop playsinline preload="auto"></video>
+            </div>
+            <h3 class="servicio-card__title">Videos<br>publicitarios<br>con IA</h3>
+            <p class="servicio-card__desc">
+              Spots, ads y videos de alto impacto generados y asistidos por IA. Desde brief hasta entrega, en días.
+            </p>
+            <ul class="servicio-card__bullets" aria-label="Características">
+              <li>Producción ultra-rápida</li>
+              <li>Calidad de producción premium</li>
+              <li>Adaptado a cada plataforma</li>
+            </ul>
+          </article>
+
+          <!-- Card 02 -->
+          <article class="servicio-card" data-animate="fade-up">
+            <span class="servicio-card__num" aria-hidden="true">02</span>
+            <div class="servicio-card__img-wrap" aria-hidden="true">
+              <video class="servicio-card__video" src="/vids/2.mp4"
+                     autoplay muted loop playsinline preload="auto"></video>
+            </div>
+            <h3 class="servicio-card__title">UGC &amp;<br>Avatares<br>IA</h3>
+            <p class="servicio-card__desc">
+              Contenido estilo user-generated con avatares hiperrealistas generados por IA. Confianza real, sin necesidad de cámara.
+            </p>
+            <ul class="servicio-card__bullets">
+              <li>Avatares hiperrealistas</li>
+              <li>Formatos 9:16 y 16:9</li>
+              <li>Escalable sin límite</li>
+            </ul>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="servicio-card" data-animate="fade-up">
+            <span class="servicio-card__num" aria-hidden="true">03</span>
+            <div class="servicio-card__img-wrap" aria-hidden="true">
+              <video class="servicio-card__video" src="/vids/3.mp4"
+                     autoplay muted loop playsinline preload="auto"></video>
+            </div>
+            <h3 class="servicio-card__title">Paquetes<br>de contenido<br>social</h3>
+            <p class="servicio-card__desc">
+              Posts, reels e historias producidos con IA, listos para publicar. Consistencia de marca, semana a semana.
+            </p>
+            <ul class="servicio-card__bullets">
+              <li>Posts diseñados on-brand</li>
+              <li>Reels editados e impactantes</li>
+              <li>Historias que convierten</li>
+            </ul>
+          </article>
+
+          <!-- Card 04 -->
+          <article class="servicio-card" data-animate="fade-up">
+            <span class="servicio-card__num" aria-hidden="true">04</span>
+            <div class="servicio-card__img-wrap" aria-hidden="true">
+              <video class="servicio-card__video" src="/vids/4.mp4"
+                     autoplay muted loop playsinline preload="auto"></video>
+            </div>
+            <h3 class="servicio-card__title">Estrategia<br>y<br>guionización</h3>
+            <p class="servicio-card__desc">
+              No solo producimos — pensamos tu contenido de raíz. Estrategia, calendario, guiones y narrativa de marca.
+            </p>
+            <ul class="servicio-card__bullets">
+              <li>Estrategia de contenido mensual</li>
+              <li>Guiones que enganchan</li>
+              <li>Calendario editorial completo</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         PAQUETES
+    ═══════════════════════════════════════════════ -->
+    <section id="paquetes" class="section section--paquetes" aria-label="Paquetes">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Elegí tu escala</em></p>
+        <h2 class="section-title" data-split="chars">Paquetes</h2>
+      </div>
+
+      <div class="paquetes__grid">
+
+        <!-- Opción 1: Starter -->
+        <article class="pack-card pack-card--starter">
+          <p class="pack-card__label">Starter</p>
+
+          <ul class="pack-card__list">
+            <li>Investigación de mercado, evaluación y ajuste del perfil</li>
+            <li>2 sesiones de fotos y video mensuales</li>
+            <li>4 posts con copys al mes</li>
+            <li>4 reels con copys al mes</li>
+            <li>6 historias al mes</li>
+            <li>Edición, publicación e informe de estadísticas</li>
+            <li>Análisis y ajuste de estrategias mensual</li>
+          </ul>
+          <a href="#agenda" class="btn btn--ghost btn--full" data-cursor="cta">
+            Agendá esta propuesta
+          </a>
+        </article>
+
+        <!-- Opción 2: Intermedio (featured) -->
+        <article class="pack-card pack-card--creator pack-card--featured">
+          <p class="pack-card__badge">El más elegido</p>
+          <p class="pack-card__label">Intermedio</p>
+
+          <ul class="pack-card__list">
+            <li>Investigación de mercado, evaluación y ajuste del perfil</li>
+            <li>2 sesiones de fotos y video mensuales</li>
+            <li>8 posts con copys al mes</li>
+            <li>8 reels con copys al mes</li>
+            <li>10 historias al mes</li>
+            <li>Virtualización del local (3D)</li>
+            <li>1 Avatar de IA UGC</li>
+            <li>Edición, publicación e informe de estadísticas</li>
+            <li>Análisis y ajuste de estrategias mensual</li>
+            <li>Flexibilidad de cobertura en evento no planificado</li>
+          </ul>
+          <a href="#agenda" class="btn btn--primary btn--full" data-cursor="cta">
+            Agendá esta propuesta
+          </a>
+        </article>
+
+        <!-- Opción 3: Avanzado -->
+        <article class="pack-card pack-card--studio">
+          <p class="pack-card__label">Avanzado</p>
+
+          <ul class="pack-card__list">
+            <li>Investigación de mercado, evaluación y ajuste del perfil</li>
+            <li>3 sesiones de fotos y video mensuales</li>
+            <li>8 posts con copys al mes</li>
+            <li>10 reels con copys al mes</li>
+            <li>18 historias al mes</li>
+            <li>Virtualización del local (3D)</li>
+            <li>1 Avatar de IA UGC</li>
+            <li>Edición, publicación e informe de estadísticas</li>
+            <li>Análisis y ajuste de estrategias mensual</li>
+            <li>Flexibilidad de cobertura en evento no planificado</li>
+          </ul>
+          <a href="#agenda" class="btn btn--ghost btn--full" data-cursor="cta">
+            Agendá esta propuesta
+          </a>
+        </article>
+
+      </div>
+
+      <p class="paquetes__note">
+        ¿Necesitás algo a medida?&nbsp;
+        <a href="https://wa.me/5493875601433?text=Hola%20Coplero%2C%20necesito%20un%20paquete%20personalizado."
+           target="_blank"
+           rel="noopener noreferrer">
+          Contanos tu proyecto →
+        </a>
+      </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         REEL / SHOWCASE
+    ═══════════════════════════════════════════════ -->
+    <section id="reel" class="section section--reel" aria-label="Portfolio / Reel">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Nuestro trabajo</em></p>
+        <h2 class="section-title" data-split="chars">Reel</h2>
+      </div>
+
+      <div class="reel__grid">
+
+        <!-- Fila 1: Video Ad + Campaign (izq, apilados) | UGC Avatar (der, vertical) -->
+        <div class="reel__row reel__row--main">
+          <div class="reel__stack">
+            <div class="reel-item">
+              <video class="reel-item__video" controls playsinline preload="metadata">
+                <source src="/reel/1.mp4" type="video/mp4">
+              </video>
+              <div class="reel-item__overlay">
+                <span class="reel-item__title">Anuncio Vendimiatech — Mendoza</span>
+                <span class="reel-item__type">Anuncio hecho 100% con inteligencia artificial para el evento Vendimia Tech, que se llevó a cabo en Mendoza. Desde el cual conseguimos obtener más de 3.000 inscripciones en el evento.</span>
+              </div>
+            </div>
+            <div class="reel-item">
+              <video class="reel-item__video" controls playsinline preload="metadata">
+                <source src="/reel/4.mp4" type="video/mp4">
+              </video>
+              <div class="reel-item__overlay">
+                <span class="reel-item__title">Anuncio de aniversario de Hotel Caseros</span>
+                <span class="reel-item__type">Un hotel salteño cumplió 2 años con Coplero, y generó el mejor anuncio conmemorativo de su historia.</span>
+              </div>
+            </div>
+          </div>
+          <div class="reel-item reel-item--tall">
+            <video class="reel-item__video" controls playsinline preload="metadata">
+              <source src="/reel/2.mp4" type="video/mp4">
+            </video>
+            <div class="reel-item__overlay">
+              <span class="reel-item__title">Anuncio Línea de Perfumes IL Figaro</span>
+              <span class="reel-item__type">Campaña de ads para IL Figaro, peluquero de la selección, usando clonación de voz y generación 100% IA.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 2: Reel Social | UGC Avatar 2 (ambos verticales, iguales) -->
+        <div class="reel__row reel__row--pair">
+          <div class="reel-item reel-item--tall">
+            <video class="reel-item__video" controls playsinline preload="metadata">
+              <source src="/reel/3.mp4" type="video/mp4">
+            </video>
+            <div class="reel-item__overlay">
+              <span class="reel-item__title">Bodega Lamadrid</span>
+              <span class="reel-item__type">Rewind de un sunset hecho 100% a partir de fotografías terrestres en la Bodega Lamadrid — Mendoza.</span>
+            </div>
+          </div>
+          <div class="reel-item reel-item--tall">
+            <video class="reel-item__video" controls playsinline preload="metadata">
+              <source src="/reel/5.mp4" type="video/mp4">
+            </video>
+            <div class="reel-item__overlay">
+              <span class="reel-item__title">Anuncio del primer Coffee Rave Salteño</span>
+              <span class="reel-item__type">Llevado a cabo en Salta capital, solo bastó este anuncio para llenar toda la convocatoria del Coffee Rave.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 3: E-commerce Spot (horizontal, ancho completo) -->
+        <div class="reel-item reel-item--featured">
+          <video class="reel-item__video" controls playsinline preload="metadata">
+            <source src="/reel/6.mp4" type="video/mp4">
+          </video>
+          <div class="reel-item__overlay">
+            <span class="reel-item__title">Anuncio 21K Newbalance Salta</span>
+            <span class="reel-item__type">Creado para incentivar a los corredores de la carrera 21K Newbalance en Salta.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         EQUIPO
+    ═══════════════════════════════════════════════ -->
+    <section id="equipo" class="section section--equipo" aria-label="Quiénes somos">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Quiénes somos</em></p>
+        <h2 class="section-title" data-split="chars">El Equipo</h2>
+      </div>
+
+      <div class="equipo__grid">
+
+        <!-- Estefanía Danna — Cofundadora -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img src="/team/estefania.png" alt="Estefanía Danna" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__role">Cofundadora</p>
+            <h3 class="team-card__name">Estefanía Danna</h3>
+            <p class="team-card__bio">Fotógrafa y cofundadora de Coplero. Convierte ideas en imágenes que venden, combinando visión artística y tecnología de vanguardia.</p>
+            <div class="team-card__social">
+              <a href="https://www.instagram.com/estefi.ph/" target="_blank" rel="noopener" aria-label="Instagram de Estefanía">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://bio.site/ESTEFANIADANNA" target="_blank" rel="noopener" aria-label="Sitio web de Estefanía">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Juan Guzmán — Fundador -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img src="/team/juan.png" alt="Juan Guzmán" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__role">Fundador</p>
+            <h3 class="team-card__name">Juan Guzmán</h3>
+            <p class="team-card__bio">Fundador de Coplero. Emprendedor apasionado por la IA aplicada a la producción de contenido. Lidera la visión estratégica y tecnológica del estudio.</p>
+            <div class="team-card__social">
+              <a href="https://www.instagram.com/juanpa.soy/" target="_blank" rel="noopener" aria-label="Instagram de Juan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/juangutierrezjp/" target="_blank" rel="noopener" aria-label="LinkedIn de Juan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valentina Maita — Productora Creativa -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img src="/team/vale.png" alt="Valentina Maita" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__role">Productora Creativa</p>
+            <h3 class="team-card__name">Valentina Maita</h3>
+            <p class="team-card__bio">El motor detrás de cada proyecto. Coordina, crea y ejecuta para que cada entrega supere las expectativas del cliente.</p>
+            <div class="team-card__social">
+              <a href="https://www.instagram.com/valeeee.maita/" target="_blank" rel="noopener" aria-label="Instagram de Valentina">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         CLIENTES
+    ═══════════════════════════════════════════════ -->
+    <section id="clientes" class="section section--clientes" aria-label="Clientes">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Confían en nosotros</em></p>
+        <h2 class="section-title" data-split="chars">Clientes</h2>
+      </div>
+
+      <div class="clientes__marquees">
+
+        <!-- Fila 1 — desplaza hacia la izquierda -->
+        <div class="marquee marquee--logos" data-speed="55" data-dir="1">
+          <div class="marquee__track">
+            <a href="https://www.instagram.com/grissini.salta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/gissini.jpg" alt="Grissini" class="cliente-logo">
+              <span class="cliente-nombre">Grissini</span>
+            </a>
+            <a href="https://www.instagram.com/hotelcaseros/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/hotelcaseros.png" alt="Hotel Caseros" class="cliente-logo">
+              <span class="cliente-nombre">Hotel Caseros</span>
+            </a>
+            <a href="https://www.instagram.com/municipalidadsalta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/munisalta.png" alt="Municipalidad de Salta" class="cliente-logo">
+              <span class="cliente-nombre">Municipalidad de Salta</span>
+            </a>
+            <a href="#" class="cliente-item">
+              <img src="/marcas/saltadev.png" alt="Salta Dev" class="cliente-logo">
+              <span class="cliente-nombre">Salta Dev</span>
+            </a>
+            <a href="https://www.instagram.com/ucasal/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/ucasal.png" alt="UCASAL" class="cliente-logo">
+              <span class="cliente-nombre">UCASAL</span>
+            </a>
+            <a href="https://www.instagram.com/vendimiatech/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/vendimiatech.png" alt="Vendimia Tech" class="cliente-logo">
+              <span class="cliente-nombre">Vendimia Tech</span>
+            </a>
+            <a href="https://www.instagram.com/vincles.salta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/vincles.png" alt="Vincles" class="cliente-logo">
+              <span class="cliente-nombre">Vincles</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Fila 2 — desplaza hacia la derecha, con offset -->
+        <div class="marquee marquee--logos marquee--row2" data-speed="42" data-dir="-1">
+          <div class="marquee__track">
+            <a href="https://www.instagram.com/ucasal/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/ucasal.png" alt="UCASAL" class="cliente-logo">
+              <span class="cliente-nombre">UCASAL</span>
+            </a>
+            <a href="https://www.instagram.com/vincles.salta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/vincles.png" alt="Vincles" class="cliente-logo">
+              <span class="cliente-nombre">Vincles</span>
+            </a>
+            <a href="https://www.instagram.com/grissini.salta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/gissini.jpg" alt="Grissini" class="cliente-logo">
+              <span class="cliente-nombre">Grissini</span>
+            </a>
+            <a href="https://www.instagram.com/vendimiatech/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/vendimiatech.png" alt="Vendimia Tech" class="cliente-logo">
+              <span class="cliente-nombre">Vendimia Tech</span>
+            </a>
+            <a href="https://www.instagram.com/municipalidadsalta/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/munisalta.png" alt="Municipalidad de Salta" class="cliente-logo">
+              <span class="cliente-nombre">Municipalidad de Salta</span>
+            </a>
+            <a href="https://www.instagram.com/hotelcaseros/" target="_blank" rel="noopener noreferrer" class="cliente-item">
+              <img src="/marcas/hotelcaseros.png" alt="Hotel Caseros" class="cliente-logo">
+              <span class="cliente-nombre">Hotel Caseros</span>
+            </a>
+            <a href="#" class="cliente-item">
+              <img src="/marcas/saltadev.png" alt="Salta Dev" class="cliente-logo">
+              <span class="cliente-nombre">Salta Dev</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         PROCESO
+    ═══════════════════════════════════════════════ -->
+    <section id="proceso" class="section section--proceso" aria-label="Proceso de trabajo">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Cómo trabajamos</em></p>
+        <h2 class="section-title" data-split="chars">Proceso</h2>
+      </div>
+
+      <div class="proceso__steps">
+
+        <div class="proceso__step">
+          <span class="proceso__step-num" aria-hidden="true">01</span>
+          <div class="proceso__step-content">
+            <h3 class="proceso__step-title">Brief</h3>
+            <p class="proceso__step-desc">
+              Nos contás tu negocio, tu producto y tu objetivo. En una reunión de 30 minutos entendemos todo lo que necesitamos para empezar a producir.
+            </p>
+          </div>
+        </div>
+
+        <div class="proceso__step">
+          <span class="proceso__step-num" aria-hidden="true">02</span>
+          <div class="proceso__step-content">
+            <h3 class="proceso__step-title">Estrategia</h3>
+            <p class="proceso__step-desc">
+              Armamos el plan de contenido, el calendario editorial y la estrategia de comunicación alineada a tus objetivos de negocio.
+            </p>
+          </div>
+        </div>
+
+        <div class="proceso__step">
+          <span class="proceso__step-num" aria-hidden="true">03</span>
+          <div class="proceso__step-content">
+            <h3 class="proceso__step-title">Guionización</h3>
+            <p class="proceso__step-desc">
+              Cada pieza se guioniza antes de producirse. Narrativa, gancho, desarrollo y CTA — todo pensado para capturar atención y convertir.
+            </p>
+          </div>
+        </div>
+
+        <div class="proceso__step">
+          <span class="proceso__step-num" aria-hidden="true">04</span>
+          <div class="proceso__step-content">
+            <h3 class="proceso__step-title">Producción</h3>
+            <p class="proceso__step-desc">
+              Producción con IA de última generación. Velocidad real sin sacrificar calidad. Tu contenido listo en tiempo récord para cualquier formato o plataforma.
+            </p>
+          </div>
+        </div>
+
+        <div class="proceso__step">
+          <span class="proceso__step-num" aria-hidden="true">05</span>
+          <div class="proceso__step-content">
+            <h3 class="proceso__step-title">Entrega</h3>
+            <p class="proceso__step-desc">
+              Entregamos archivos optimizados para cada plataforma — Instagram, TikTok, YouTube, Meta Ads. Formatos, resoluciones y specs listos para publicar.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         FAQ
+    ═══════════════════════════════════════════════ -->
+    <section id="faq" class="section section--faq" aria-label="Preguntas frecuentes">
+      <div class="section-header">
+        <p class="section-eyebrow"><em>Preguntas frecuentes</em></p>
+        <h2 class="section-title" data-split="chars">FAQ</h2>
+      </div>
+
+      <div class="faq__list">
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Qué diferencia hay entre los tres paquetes?</summary>
+          <p class="faq__answer">
+            <strong>Starter</strong> incluye 4 posts, 4 reels y 6 historias mensuales con 2 sesiones de fotos y video. Ideal para arrancar con presencia consistente.<br><br>
+            <strong>Intermedio</strong> — el más elegido — sube a 8 posts, 8 reels y 10 historias, suma virtualización 3D del local y un avatar de IA para UGC. También incluye cobertura flexible en eventos no planificados.<br><br>
+            <strong>Avanzado</strong> lleva los reels a 10, las historias a 18 y las sesiones a 3 por mes, manteniendo el avatar IA y la virtualización 3D. Para marcas que necesitan máxima presencia y volumen de contenido.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Necesito aparecer en cámara?</summary>
+          <p class="faq__answer">
+            No. Con los paquetes Intermedio y Avanzado generamos un <em>avatar de IA hiperrealista</em> que habla por tu marca. Podés tener contenido estilo UGC — el formato que más convierte en redes — sin exponerte vos ni contratar actores. El resultado es indistinguible de un video real.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Cómo es el proceso desde que contrato?</summary>
+          <p class="faq__answer">
+            Arrancamos con un brief de 30 minutos donde entendemos tu negocio y objetivos. Después armamos la estrategia y el calendario editorial, guionizamos cada pieza, producimos con IA y entregamos los archivos optimizados para cada plataforma — Instagram, TikTok, YouTube y Meta Ads. También incluimos publicación e informe de estadísticas mensual.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Cuánto tarda la primera entrega?</summary>
+          <p class="faq__answer">
+            Para paquetes de contenido social, la primera entrega está lista en 5 a 7 días hábiles desde el onboarding. Para videos publicitarios y UGC el tiempo varía según la complejidad, pero trabajamos siempre con velocidad real — sin semanas de espera.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿El contenido es exclusivo para mi marca?</summary>
+          <p class="faq__answer">
+            Sí, todo es 100% exclusivo. Los avatares, videos y creatividades se generan específicamente para vos y no se reutilizan con ningún otro cliente. Los derechos del contenido son completamente tuyos desde el momento en que abonás — podés usarlo en cualquier plataforma o canal sin restricciones.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Trabajan solo en Salta o en todo el país?</summary>
+          <p class="faq__answer">
+            Trabajamos con marcas de todo el país y también del exterior. Somos una productora argentina — nacimos en Salta, pero el trabajo es 100% remoto y digital. Si tu negocio tiene una historia para contar, nos adaptamos sin importar dónde estés.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">¿Pueden armar algo a medida si ningún paquete me cierra?</summary>
+          <p class="faq__answer">
+            Sí. Los tres paquetes son puntos de partida, no el límite. Si necesitás más volumen, un formato específico, video publicitario puntual o estrategia de contenido sin producción, escribinos por WhatsApp y armamos algo adaptado a tu proyecto.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         AGENDA — CTA FINAL
+    ═══════════════════════════════════════════════ -->
+    <section id="agenda" class="section section--cta-final section--agenda" aria-label="Agendá una reunión">
+      <div class="agenda__wrap">
+
+        <!-- Copy izquierda -->
+        <div class="agenda__copy">
+          <p class="section-eyebrow"><em>Empezá hoy</em></p>
+          <h2 class="cta-final__headline">
+            <span>Agendá tu</span>
+            <span><em>reunión</em></span>
+            <span>gratuita.</span>
+          </h2>
+          <p class="agenda__sub">
+            30 minutos. Sin compromiso. Te mostramos exactamente cómo podemos hacer crecer tu marca con inteligencia artificial.
+          </p>
+          <a href="https://wa.me/5493875601433?text=Hola%20Coplero%2C%20quiero%20saber%20m%C3%A1s%20sobre%20sus%20servicios."
+             class="btn btn--ghost agenda__wa"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cursor="cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <span>Hablá por WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Widget Calendly derecha -->
+        <div class="agenda__widget">
+          <!-- Principio del widget integrado de Calendly -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/juanpa-meet/meet?hide_gdpr_banner=1"></div>
+          <!-- Final del widget integrado de Calendly -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Script Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__top">
+      <img src="/Coplero.png" alt="Coplero" class="footer__logo">
+      <p class="footer__tagline"><em>A.I. Content Production Company</em></p>
+    </div>
+
+    <div class="footer__mid">
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#reel">Reel</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="footer__social">
+        <a href="https://www.instagram.com/copleroai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Coplero">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 Coplero. Argentina ↔ El mundo.</p>
+      <p><em>sí. esta página está hecha 100% con IA también.</em></p>
+    </div>
+  </footer>
+
+  <!-- ─── JS ENTRY ─── -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

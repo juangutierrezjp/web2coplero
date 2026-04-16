@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+  <!-- Sol Coplero — reinterpretación del sol argentino -->
+  <!-- Disco central -->
+  <circle cx="100" cy="100" r="20"/>
+  <!-- Rayos — 16 rayos de longitudes orgánicas, no perfectamente uniformes -->
+  <!-- 0° — 12 o'clock (apunta hacia arriba en SVG = y negativo) -->
+  <rect x="97" y="26" width="6" height="52" rx="3" transform="rotate(0 100 100)"/>
+  <!-- 22.5° -->
+  <rect x="97.5" y="32" width="5" height="46" rx="2.5" transform="rotate(22.5 100 100)"/>
+  <!-- 45° -->
+  <rect x="97" y="28" width="6" height="50" rx="3" transform="rotate(45 100 100)"/>
+  <!-- 67.5° -->
+  <rect x="97.5" y="36" width="5" height="42" rx="2.5" transform="rotate(67.5 100 100)"/>
+  <!-- 90° — 3 o'clock (apunta a la derecha) -->
+  <rect x="97" y="24" width="6" height="54" rx="3" transform="rotate(90 100 100)"/>
+  <!-- 112.5° -->
+  <rect x="97.5" y="34" width="4.5" height="40" rx="2.25" transform="rotate(112.5 100 100)"/>
+  <!-- 135° -->
+  <rect x="97" y="30" width="6" height="48" rx="3" transform="rotate(135 100 100)"/>
+  <!-- 157.5° -->
+  <rect x="98" y="38" width="4" height="36" rx="2" transform="rotate(157.5 100 100)"/>
+  <!-- 180° — 6 o'clock (apunta hacia abajo) -->
+  <rect x="97" y="26" width="6" height="52" rx="3" transform="rotate(180 100 100)"/>
+  <!-- 202.5° -->
+  <rect x="97.5" y="32" width="5" height="46" rx="2.5" transform="rotate(202.5 100 100)"/>
+  <!-- 225° -->
+  <rect x="97" y="28" width="6" height="50" rx="3" transform="rotate(225 100 100)"/>
+  <!-- 247.5° -->
+  <rect x="97.5" y="36" width="4.5" height="42" rx="2.25" transform="rotate(247.5 100 100)"/>
+  <!-- 270° — 9 o'clock (apunta a la izquierda) -->
+  <rect x="97" y="24" width="6" height="54" rx="3" transform="rotate(270 100 100)"/>
+  <!-- 292.5° -->
+  <rect x="97.5" y="34" width="5" height="42" rx="2.5" transform="rotate(292.5 100 100)"/>
+  <!-- 315° -->
+  <rect x="97" y="30" width="6" height="48" rx="3" transform="rotate(315 100 100)"/>
+  <!-- 337.5° -->
+  <rect x="98" y="38" width="4" height="36" rx="2" transform="rotate(337.5 100 100)"/>
+</svg>
