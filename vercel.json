@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/brandbook", "destination": "/brandbook.html" },
+    { "source": "/brandbook/", "destination": "/brandbook.html" }
+  ]
+}
