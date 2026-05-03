@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COPLERO — Brandbook</title>
-  <meta name="description" content="Brandbook oficial de Coplero — A.I. Content Production Company. Guía de estilos, colores, tipografía y prompts para IA.">
+  <meta name="description" content="Brandbook oficial de Coplero — A.I. Content Production Company. Guía de estilos, colores, tipografía, logos y prompts para IA.">
 
   <!-- Fonts: clean geometric sans-serif (Inter / SF Pro / Helvetica-like) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     }
 
     /* ─── LAYOUT ─── */
-    .page { max-width: 960px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
+    .page { max-width: 960px; margin:0 auto; padding: 2rem 2.5rem 4rem; }
 
     /* ─── HEADER BAR ─── */
     .doc-header {
@@ -101,6 +101,43 @@
       background: linear-gradient(135deg, rgba(23, 24, 255, 0.04), rgba(0, 27, 102, 0.06));
       border-left: 3px solid var(--blue-electric);
     }
+
+    /* ─── LOGO SHOWCASE ─── */
+    .logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 1.5rem 0; }
+    .logo-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .logo-card--dark { background: var(--blue-primary); }
+    .logo-card--light { background: var(--white); border: 1px solid var(--border); }
+    .logo-card__img { max-width: 100%; height: 80px; width: auto; margin-bottom: 1rem; }
+    .logo-card__name {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3rem;
+    }
+    .logo-card--dark .logo-card__name { color: rgba(255,255,255,0.7); }
+    .logo-card--light .logo-card__name { color: var(--text-mid); }
+    .logo-card__usage {
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+    .logo-card--dark .logo-card__usage { color: rgba(255,255,255,0.8); }
+    .logo-card--light .logo-card__usage { color: var(--text-dark); }
+    .logo-card__file {
+      font-size: 0.7rem;
+      font-family: 'Courier New', monospace;
+      background: rgba(23,24,255,0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .logo-card--dark .logo-card__file { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+    .logo-card--light .logo-card__file { color: var(--blue-primary); }
 
     /* ─── COLOR TABLE ─── */
     .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
@@ -409,6 +446,17 @@
       margin-bottom: 0.5rem;
     }
 
+    /* ─── LOGO USAGE NOTE ─── */
+    .logo-usage-note {
+      background: #F0F4FF;
+      border-left: 3px solid var(--blue-electric);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .logo-usage-note strong { color: var(--blue-primary); }
+
     @media print {
       body { background: white; }
       .page { max-width: 100%; padding: 1rem; }
@@ -425,7 +473,7 @@
     <!-- ─── DOCUMENT HEADER ─── -->
     <header class="doc-header">
       <div class="doc-header__brand">
-        <img src="/Coplero.png" alt="Coplero" class="doc-header__logo">
+        <img src="/LogoYTituloBlanco.png" alt="Coplero" class="doc-header__logo" style="filter: brightness(0) invert(1); background: var(--blue-primary); padding: 0.5rem 1rem; border-radius: 4px;">
         <div class="doc-header__text">
           <h1>COPLERO</h1>
           <p>A.I. Content Production Company · Brandbook</p>
@@ -438,7 +486,7 @@
 
     <div class="divider--thick"></div>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
          1. IDENTIDAD DE MARCA
     ═══════════════════════════════════════════════ -->
     <div class="section-title">1 · Identidad de Marca</div>
@@ -482,43 +530,124 @@
       </ul>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         2. IDENTIDAD VISUAL
+    <!-- ══════════════════════════════════════════
+         2. LOGOTIPOS OFICIALES
     ═══════════════════════════════════════════════ -->
-    <div class="section-title">2 · Identidad Visual</div>
+    <div class="section-title">2 · Logotipos Oficiales</div>
 
-    <!-- Logos -->
+    <p class="note" style="margin-bottom: 1.5rem;">
+      Coplero tiene 4 archivos de logo. La regla de oro: <strong>isotipo = solo el sol (C), logo = isotipo + texto "coplero"</strong>.<br>
+      Elegí el que contraste correctamente según el fondo. Nunca uses un logo que no se vea bien.
+    </p>
+
+    <div class="logo-grid">
+      <!-- LogoYTituloBlanco -->
+      <div class="logo-card logo-card--dark">
+        <img src="/LogoYTituloBlanco.png" alt="Logo + Título Blanco" class="logo-card__img">
+        <div class="logo-card__name">Logo + Título Blanco</div>
+        <div class="logo-card__usage">
+          <strong>Uso:</strong> Fondos oscuros (#001B66, negro, azul primario)<br>
+          <strong>Descripción:</strong> Isotipo (sol) + texto "coplero" en blanco<br>
+          <strong>Donde usar:</strong> Header/footer web, videos, fondos oscuros
+        </div>
+        <span class="logo-card__file">LogoYTituloBlanco.png</span>
+      </div>
+
+      <!-- LogoYTituloNegro -->
+      <div class="logo-card logo-card--light">
+        <img src="/LogoYTituloNegro.png" alt="Logo + Título Negro" class="logo-card__img">
+        <div class="logo-card__name">Logo + Título Negro</div>
+        <div class="logo-card__usage">
+          <strong>Uso:</strong> Fondos claros (blanco, gris claro, beige)<br>
+          <strong>Descripción:</strong> Isotipo (sol) + texto "coplero" en negro<br>
+          <strong>Donde usar:</strong> Recibos, facturas, documentos claros, papel
+        </div>
+        <span class="logo-card__file">LogoYTituloNegro.png</span>
+      </div>
+
+      <!-- isotipoBlanco -->
+      <div class="logo-card logo-card--dark">
+        <img src="/isotipoBlanco.png" alt="Isotipo Blanco" class="logo-card__img">
+        <div class="logo-card__name">Isotipo Blanco (solo sol)</div>
+        <div class="logo-card__usage">
+          <strong>Uso:</strong> Fondos oscuros (#001B66, negro)<br>
+          <strong>Descripción:</strong> Solo el sol (letra C) en blanco, sin texto<br>
+          <strong>Donde usar:</strong> Favicon, cursor custom, adornos, elementos pequeños
+        </div>
+        <span class="logo-card__file">isotipoBlanco.png</span>
+      </div>
+
+      <!-- isotipoNegro -->
+      <div class="logo-card logo-card--light">
+        <img src="/isotipoNegro.png" alt="Isotipo Negro" class="logo-card__img">
+        <div class="logo-card__name">Isotipo Negro (solo sol)</div>
+        <div class="logo-card__usage">
+          <strong>Uso:</strong> Fondos claros (blanco, gris claro)<br>
+          <strong>Descripción:</strong> Solo el sol (letra C) en negro, sin texto<br>
+          <strong>Donde usar:</strong> Documentos claros, membretes, tarjetas
+        </div>
+        <span class="logo-card__file">isotipoNegro.png</span>
+      </div>
+    </div>
+
+    <!-- Quick Reference Table -->
     <div class="card">
-      <h2 class="subtitle">Logotipo Oficial</h2>
-      <p class="note">El único logo autorizado es Coplero.png (formato PNG, fondo transparente, blanco). NO usar SVGs como logos.</p>
-
-      <div style="text-align: center; padding: 2rem; background: var(--blue-primary); border-radius: 8px; margin: 1rem 0;">
-        <img src="/Coplero.png" alt="Coplero Logo" style="height: 80px; width: auto;">
-      </div>
-
-      <div style="text-align: center; padding: 2rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; margin: 1rem 0;">
-        <img src="/Coplero.png" alt="Coplero Logo Dark" style="height: 60px; width: auto; filter: brightness(0);">
-      </div>
-
-      <p style="margin-top: 1rem;">
-        <a href="/Coplero.png" download class="download-link">Descargar Coplero.png</a> ·
-        <a href="/BrandbookCoplero.pdf" download class="download-link">Brandbook PDF completo</a> ·
-        <a href="/brandbook.txt" download class="download-link">Brandbook texto plano</a>
-      </p>
+      <h2 class="subtitle">Guía Rápida: Qué Logo Usar Según el Fondo</h2>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Fondo</th>
+            <th>Logo a Usar</th>
+            <th>Archivo</th>
+            <th>Ejemplo de Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Azul Primario (#001B66)</strong></td>
+            <td>Logo + Título BLANCO</td>
+            <td><code>LogoYTituloBlanco.png</code></td>
+            <td>Header web, footer web, videos</td>
+          </tr>
+          <tr>
+            <td><strong>Negro (#000000)</strong></td>
+            <td>Logo + Título BLANCO</td>
+            <td><code>LogoYTituloBlanco.png</code></td>
+            <td>Videos, fondos oscuros</td>
+          </tr>
+          <tr>
+            <td><strong>Blanco / Light Gray (#FFFFFF / #F5F5F7)</strong></td>
+            <td>Logo + Título NEGRO</td>
+            <td><code>LogoYTituloNegro.png</code></td>
+            <td>Recibos, facturas, documentos</td>
+          </tr>
+          <tr>
+            <td><strong>Cualquier fondo (elemento pequeño)</strong></td>
+            <td>Isotipo (solo sol) B/N</td>
+            <td><code>isotipoBlanco.png</code> o <code>isotipoNegro.png</code></td>
+            <td>Favicon, cursor, adornos</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- Usos prohibidos -->
     <div class="rules-box">
-      <div class="rules-box__title">⚠ Usos Prohibidos del Logotipo</div>
+      <div class="rules-box__title">⚠ Usos Prohibidos de los Logotipos</div>
       <ul>
-        <li>No modificar el color del signo</li>
-        <li>No modificar la tipografía oficial</li>
-        <li>No deformar la marca</li>
-        <li>No usar sobre colores institucionales sin contraste suficiente</li>
-        <li>No usar versión negativa sobre fondos neutros claros</li>
-        <li>No usar archivos SVG como logotipo (solo PNG)</li>
+        <li>No modificar los colores del signo (el sol debe ser blanco o negro puro)</li>
+        <li>No distorsionar la proporción (mantener aspect-ratio original)</li>
+        <li>No cambiar la tipografía del texto "coplero"</li>
+        <li>No usar LogoYTituloBlanco sobre fondos blancos/claros (no se verá)</li>
+        <li>No usar LogoYTituloNegro sobre fondos oscuros (no se verá)</li>
+        <li>No usar SVGs como logotipos (usar solo archivos PNG)</li>
       </ul>
     </div>
+
+    <!-- ══════════════════════════════════════════
+         3. IDENTIDAD VISUAL
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">3 · Identidad Visual</div>
 
     <!-- Paleta Cromática -->
     <div class="card">
@@ -629,10 +758,10 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         3. DIRECTRICES DE DISEÑO
+    <!-- ══════════════════════════════════════════
+         4. DIRECTRICES DE DISEÑO
     ═══════════════════════════════════════════════ -->
-    <div class="section-title">3 · Directrices de Diseño</div>
+    <div class="section-title">4 · Directrices de Diseño</div>
 
     <div class="info-grid">
       <div class="info-block">
@@ -686,10 +815,10 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         4. PLANTILLAS PARA AGENTES DE IA
+    <!-- ══════════════════════════════════════════
+         5. PLANTILLAS PARA AGENTES DE IA
     ═══════════════════════════════════════════════ -->
-    <div class="section-title">4 · Plantillas para Agentes de IA</div>
+    <div class="section-title">5 · Plantillas para Agentes de IA</div>
     <p class="note" style="margin-bottom: 1.5rem;">
       Cada plantilla tiene 4 bloques estructurados para que cualquier agente de IA (imagen o código) pueda generar documentos con identidad Coplero.<br>
       <strong>Agente Imagen</strong>: copia el <em>Image Gen Prompt</em> verbatim → genera PNG/JPG.<br>
@@ -706,7 +835,7 @@
             <th>Formato</th>
             <th>Uso</th>
             <th>Background</th>
-            <th>Orientación</th>
+            <th>Logo a Usar</th>
           </tr>
         </thead>
         <tbody>
@@ -714,61 +843,66 @@
             <td><strong>Recibo de Pago</strong></td>
             <td>Documento formal</td>
             <td>Recibos, comprobantes, facturas</td>
-            <td>Sutil indigo/blue, fondo blanco/light gray</td>
-            <td>Vertical (A4 / 4:5)</td>
+            <td>Fondo blanco (#FFFFFF) + gradiente sutil</td>
+            <td><code>LogoYTituloNegro.png</code> (fondo claro)</td>
           </tr>
           <tr>
             <td><strong>Infografía Estrategia</strong></td>
             <td>Infografía planificación</td>
             <td>Ideas contenido, estrategias redes</td>
-            <td>Ink cloud gradient, dark cards</td>
-            <td>Horizontal (16:9)</td>
+            <td>Ink cloud gradient sobre #001B66</td>
+            <td><code>LogoYTituloBlanco.png</code> (fondo oscuro)</td>
           </tr>
           <tr>
             <td><strong>Propuesta Evento</strong></td>
             <td>Proposal / Presupuesto</td>
             <td>Cobertura audiovisual, presupuestos</td>
-            <td>Ink cloud gradient, dark panels</td>
-            <td>Horizontal (16:9)</td>
+            <td>Ink cloud gradient sobre #001B66</td>
+            <td><code>LogoYTituloBlanco.png</code> (fondo oscuro)</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
          TEMPLATE 1: RECIBO DE PAGO
     ═══════════════════════════════════════════════ -->
     <div class="template-section">
       <div class="template-header">
         <h3>Template 1 — Recibo de Pago Premium</h3>
-        <span class="tag">Vertical · A4/4:5</span>
+        <span class="tag">Vertical · A4/4:5 · Fondo Claro</span>
       </div>
       <div class="template-body">
+
+        <div class="logo-usage-note">
+          <strong>LOGO PARA ESTE TEMPLATE:</strong> Usar <code>LogoYTituloNegro.png</code> (Logo + Título Negro) porque el fondo es blanco/light gray.<br>
+          Si el documento tiene una sección oscura, usar <code>LogoYTituloBlanco.png</code> en esa sección específica.
+        </div>
 
         <span class="block-label">Visual Spec (para agente de código)</span>
         <table class="spec-table">
           <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
           <tbody>
             <tr><td><strong>Formato</strong></td><td>Vertical — A4 (210×297mm) o relación 4:5 (800×1000px)</td></tr>
-            <tr><td><strong>Background</strong></td><td>Fondo blanco (#FFFFFF) o very light gray (#F5F5F7). Gradiente Coplero sutil (soft indigo/blue) opacidad extremadamente baja: <code>linear-gradient(135deg, rgba(0,27,102,0.06) 0%, rgba(23,24,255,0.04) 100%)</code></td></tr>
+            <tr><td><strong>Background</strong></td><td>Fondo blanco (#FFFFFF) o very light gray (#F5F5F7). Gradiente Coplero sutil: <code>linear-gradient(135deg, rgba(0,27,102,0.06) 0%, rgba(23,24,255,0.04) 100%)</code></td></tr>
             <tr><td><strong>Textura</strong></td><td>Opcional: grain texture muy suave (SVG feTurbulence, opacity 0.03)</td></tr>
             <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Helvetica Neue. Jerarquía: Small label → Large title → Info blocks → Total → Signature</td></tr>
             <tr><td><strong>Colors</strong></td><td>Texto: #1A1A1A · Acentos: #1718FF · Dividers: #E0E0E0 · Highlight total: rgba(23,24,255,0.08)</td></tr>
             <tr><td><strong>Layout</strong></td><td>Left-aligned, structured grid tipo invoice profesional. Boxed sections, thin dividers. Logo top-right.</td></tr>
-            <tr><td><strong>Logo</strong></td><td>Coplero.png en top-right corner. No overuse. Firma de Juan Gutierrez en sección final.</td></tr>
+            <tr><td><strong>Logo</strong></td><td><code>LogoYTituloNegro.png</code> en top-right corner (fondo claro). No overuse. Firma de Juan Gutierrez en sección final.</td></tr>
             <tr><td><strong>Special</strong></td><td>Highlighted box para monto total. Signature area al final. Thin lines entre secciones.</td></tr>
           </tbody>
         </table>
 
         <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
         <div class="code-block">
-          <div class="code-block__label">HTML + CSS inline para recibo base</div>
+          <div class="code-block__label">HTML + CSS inline para recibo base (logo negro sobre fondo claro)</div>
           <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;style&gt;
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       background: #FFFFFF;
@@ -795,7 +929,7 @@
       &lt;div class="subtitle"&gt;Comprobante de Pago&lt;/div&gt;
       &lt;div class="title"&gt;RECIBO&lt;/div&gt;
     &lt;/div&gt;
-    &lt;img src="Coplero.png" class="logo" alt="Coplero"&gt;
+    &lt;img src="/LogoYTituloNegro.png" class="logo" alt="Coplero"&gt;
   &lt;/div&gt;
 
   &lt;div class="section"&gt;
@@ -804,7 +938,7 @@
 
   &lt;div class="total-box"&gt;
     &lt;div class="subtitle"&gt;Total Pagado&lt;/div&gt;
-    &lt;div class="total-amount"&gt;$XX.XXXX ARS&lt;/div&gt;
+    &lt;div class="total-amount"&gt;$XX.XXX ARS&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class="signature"&gt;
@@ -841,7 +975,7 @@ Typography & layout
 - Use boxed sections or subtle separators for clarity.
 
 Branding
-- Include the COPLERO logo in the top-right corner (as provided).
+- Include the COPLERO logo (LogoYTituloNegro.png — black logo on light background) in the top-right corner (as provided).
 - Do NOT overuse branding — keep it minimal and professional.
 - Include the signature image of Juan Gutierrez in the signature section.
 
@@ -863,7 +997,7 @@ VISUAL IDENTITY (MUST FOLLOW):
 - Background: white (#FFFFFF) or very light gray (#F5F5F7), with very subtle gradient: linear-gradient(135deg, rgba(0,27,102,0.06) 0%, rgba(23,24,255,0.04) 100%)
 - Typography: Inter / SF Pro / Helvetica Neue (clean geometric sans-serif)
 - Brand colors: #001B66 (primary blue), #1718FF (electric blue), #1A1A1A (text), #E0E0E0 (dividers)
-- Logo: Use Coplero.png (provided) in top-right corner only, minimal branding
+- Logo: Use LogoYTituloNegro.png (black logo + text "coplero") in top-right corner only, minimal branding
 - Include Juan Gutierrez signature image in signature section
 
 LAYOUT REQUIREMENTS:
@@ -890,46 +1024,52 @@ ABSOLUTE RULES:
 Exact text to include (Spanish):
 [INSERTAR TEXTO EXACTO PROPORCIONADO POR EL CLIENTE]
 
-Output: Complete HTML file with inline CSS. No external dependencies except Coplero.png logo.</pre>
+Output: Complete HTML file with inline CSS. No external dependencies except LogoYTituloNegro.png logo.</pre>
         </div>
 
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
          TEMPLATE 2: INFOGRAFÍA ESTRATEGIA
     ═══════════════════════════════════════════════ -->
     <div class="template-section">
       <div class="template-header">
         <h3>Template 2 — Infografía Estrategia de Contenido</h3>
-        <span class="tag">Horizontal · 16:9</span>
+        <span class="tag">Horizontal · 16:9 · Fondo Oscuro</span>
       </div>
       <div class="template-body">
+
+        <div class="logo-usage-note">
+          <strong>LOGO PARA ESTE TEMPLATE:</strong> Usar <code>LogoYTituloBlanco.png</code> (Logo + Título Blanco) porque el fondo es azul primario oscuro (#001B66).<br>
+          Si se usa un isotipo solo (pequeño), usar <code>isotipoBlanco.png</code>.
+        </div>
 
         <span class="block-label">Visual Spec (para agente de código)</span>
         <table class="spec-table">
           <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
           <tbody>
             <tr><td><strong>Formato</strong></td><td>Horizontal — 16:9 (1920×1080px o 1280×720px)</td></tr>
-            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud": <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code> sobre fondo #001B66</td></tr>
+            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud" sobre #001B66: <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code></td></tr>
             <tr><td><strong>Textura</strong></td><td>Grain texture ligero (SVG feTurbulence, opacity 0.05-0.08) sobre todo el fondo</td></tr>
             <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Circular. Jerarquía: Very large title → Subtitle → Section headers → Content blocks</td></tr>
             <tr><td><strong>Colors</strong></td><td>Fondo: #001B66 · Cards: rgba(255,255,255,0.08) con thin white strokes · Texto: #FFFFFF · Acentos: #1718FF</td></tr>
             <tr><td><strong>Layout</strong></td><td>Left-aligned grid, generous spacing. Structured cards (dark semi-opaque, rounded corners, thin white border) para agrupar contenido. Separación visual entre Carruseles y Reels.</td></tr>
             <tr><td><strong>Bullet points</strong></td><td>Simple neutral markers ONLY: small round dots (•) or short dashes (–). NO icons, NO logos, NO symbols.</td></tr>
+            <tr><td><strong>Logo</strong></td><td><code>LogoYTituloBlanco.png</code> (fondo oscuro). Opcional: <code>isotipoBlanco.png</code> para elementos pequeños.</td></tr>
             <tr><td><strong>Special</strong></td><td>Agrupar ideas conceptualmente: eventos, producto, branding, experiencia. Micro-line opcional: "Estrategia · Producción · Contenido para redes sociales"</td></tr>
           </tbody>
         </table>
 
         <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
         <div class="code-block">
-          <div class="code-block__label">HTML + CSS inline para infografía base</div>
+          <div class="code-block__label">HTML + CSS inline para infografía base (logo blanco sobre fondo oscuro)</div>
           <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;style&gt;
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Inter', 'SF Pro Display', 'Helvetica Neue', sans-serif;
       background: #001B66;
@@ -942,7 +1082,7 @@ Output: Complete HTML file with inline CSS. No external dependencies except Copl
     }
     body::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      position: absolute; top:0; left:0; right:0; bottom:0;
       background-image: url("data:image/svg+xml,..."); /* feTurbulence grain */
       opacity: 0.05; pointer-events: none;
     }
@@ -959,11 +1099,13 @@ Output: Complete HTML file with inline CSS. No external dependencies except Copl
     .card h3 { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; color: #1718FF; margin-bottom: 16px; }
     .card li { font-size: 18px; color: rgba(255,255,255,0.9); padding: 6px 0; list-style: none; }
     .card li::before { content: "•"; color: #1718FF; margin-right: 10px; }
+    .logo { height: 50px; position: absolute; top: 60px; right: 60px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .micro-line { font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 2px; margin-top: 30px; text-align: center; }
   &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
+  &lt;img src="/LogoYTituloBlanco.png" class="logo" alt="Coplero"&gt;
   &lt;div class="label"&gt;Estrategia de Contenido&lt;/div&gt;
   &lt;div class="title"&gt;Plan de Contenidos – [MARCA]&lt;/div&gt;
   &lt;div class="subtitle"&gt;Ideas organizadas para redes sociales&lt;/div&gt;
@@ -1013,6 +1155,10 @@ Typography & layout
 - Hierarchy: Very large title → Subtitle → Section headers → Content blocks.
 - Left aligned grid, generous spacing, consistent margins.
 - Use structured cards to group content.
+
+Branding
+- Include the COPLERO logo (LogoYTituloBlanco.png — white logo on dark background) as provided.
+- No other logos, no icons as bullets.
 
 UI design guidance
 - Design the layout like a content planning board used by a creative agency.
@@ -1070,6 +1216,7 @@ VISUAL IDENTITY (MUST FOLLOW):
 - Grain texture: SVG feTurbulence filter with opacity 0.05-0.08 overlay on entire background
 - Typography: Inter / SF Pro / Circular (clean geometric sans-serif)
 - Brand colors: #001B66 (base), #1718FF (accent), #FFFFFF (text), rgba(255,255,255,0.08) (cards)
+- Logo: Use LogoYTituloBlanco.png (white logo + text "coplero") for dark backgrounds. For small elements use isotipoBlanco.png (white sun icon only).
 - Cards: semi-opaque dark (rgba(255,255,255,0.08)), rounded corners (12px), thin white strokes (1px solid rgba(255,255,255,0.2))
 
 LAYOUT REQUIREMENTS:
@@ -1086,6 +1233,7 @@ BULLET POINTS (CRITICAL):
 
 OPTIONAL:
 - Micro-line at bottom: "Estrategia · Producción · Contenido para redes sociales" (16px, rgba white 0.5, letter-spacing 2px, centered)
+- LogoYTituloBlanco.png positioned top-right (height: 50px)
 
 ABSOLUTE RULES:
 - Do NOT invent content beyond what is provided below
@@ -1103,46 +1251,52 @@ Section card: "CARRUSELES"
 Section card: "REELS"
 [INSERTAR LISTA DE IDEAS]
 
-Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter.</pre>
+Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter. Logo images: /LogoYTituloBlanco.png and /isotipoBlanco.png.</pre>
         </div>
 
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
          TEMPLATE 3: PROPUESTA EVENTO
     ═══════════════════════════════════════════════ -->
     <div class="template-section">
       <div class="template-header">
         <h3>Template 3 — Propuesta Cobertura de Evento</h3>
-        <span class="tag">Horizontal · 16:9</span>
+        <span class="tag">Horizontal · 16:9 · Fondo Oscuro</span>
       </div>
       <div class="template-body">
+
+        <div class="logo-usage-note">
+          <strong>LOGO PARA ESTE TEMPLATE:</strong> Usar <code>LogoYTituloBlanco.png</code> (Logo + Título Blanco) porque el fondo es azul primario oscuro (#001B66).<br>
+          En el footer también puede usarse <code>isotipoBlanco.png</code> como elemento pequeño junto al texto "COPLERO AI".
+        </div>
 
         <span class="block-label">Visual Spec (para agente de código)</span>
         <table class="spec-table">
           <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
           <tbody>
             <tr><td><strong>Formato</strong></td><td>Horizontal — 16:9 (1920×1080px o 1280×720px)</td></tr>
-            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud": <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code> sobre fondo #001B66. Título principal con overlay más oscuro para legibilidad garantizada.</td></tr>
+            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud" sobre #001B66: <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code>. Título principal con overlay más oscuro para legibilidad garantizada.</td></tr>
             <tr><td><strong>Textura</strong></td><td>Grain texture ligero (SVG feTurbulence, opacity 0.05-0.08)</td></tr>
             <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Circular. Jerarquía: Very large bold title → Medium subtitle → Bold section headers → Regular body</td></tr>
             <tr><td><strong>Colors</strong></td><td>Fondo: #001B66 · Panels: semi-opaque dark (rgba(255,255,255,0.08)) con rounded corners y thin white strokes · Texto: #FFFFFF · Acentos: #1718FF</td></tr>
             <tr><td><strong>Layout</strong></td><td>Left-aligned grid, generous spacing. Múltiples sección cards apiladas verticalmente. Logo en header-right o footer-left. Info de contacto clara.</td></tr>
             <tr><td><strong>Bullet points</strong></td><td>Simple neutral markers ONLY: small round dots (•), short dashes (–). NO icons, NO logos, NO brand marks como bullets.</td></tr>
+            <tr><td><strong>Logo</strong></td><td><code>LogoYTituloBlanco.png</code> en header-right (fondo oscuro). En footer: texto "COPLERO AI" + <code>isotipoBlanco.png</code> pequeño.</td></tr>
             <tr><td><strong>Special</strong></td><td>Investment card destacada (grande, muy visible). Glow accents o separadores sutiles para secciones importantes como deliverables e inversión. Footer: "Coplero AI", web, contacto.</td></tr>
           </tbody>
         </table>
 
         <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
         <div class="code-block">
-          <div class="code-block__label">HTML + CSS inline para propuesta base</div>
+          <div class="code-block__label">HTML + CSS inline para propuesta base (logo blanco sobre fondo oscuro)</div>
           <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;style&gt;
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Inter', 'SF Pro Display', 'Helvetica Neue', sans-serif;
       background: #001B66;
@@ -1181,6 +1335,7 @@ Output: Complete HTML file with inline CSS. No external dependencies. Include gr
     .investment-amount { font-size: 48px; font-weight: 800; color: #FFFFFF; margin: 8px 0; }
     .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); }
     .footer-brand { font-size: 18px; font-weight: 600; }
+    .footer-brand img { height: 24px; vertical-align: middle; margin-right: 8px; }
     .footer-contact { font-size: 14px; color: rgba(255,255,255,0.7); text-align: right; }
   &lt;/style&gt;
 &lt;/head&gt;
@@ -1191,7 +1346,7 @@ Output: Complete HTML file with inline CSS. No external dependencies. Include gr
       &lt;div class="title"&gt;Cobertura Audiovisual de Presentación&lt;/div&gt;
       &lt;div class="subtitle"&gt;[INSTITUCIÓN] · Evento del [FECHA]&lt;/div&gt;
     &lt;/div&gt;
-    &lt;img src="Coplero.png" class="logo" alt="Coplero"&gt;
+    &lt;img src="/LogoYTituloBlanco.png" class="logo" alt="Coplero"&gt;
   &lt;/div&gt;
 
   &lt;div class="card"&gt;
@@ -1204,12 +1359,14 @@ Output: Complete HTML file with inline CSS. No external dependencies. Include gr
   &lt;/div&gt;
 
   &lt;div class="investment-card"&gt;
-    &lt;div class="investment-label"&gt;Inversión&lt;/div&gt;
+    &lt;div class="investment-label"&gt;INVERSIÓN&lt;/div&gt;
     &lt;div class="investment-amount"&gt;$XX.000 ARS por alumno&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class="footer"&gt;
-    &lt;div class="footer-brand"&gt;COPLERO AI&lt;/div&gt;
+    &lt;div class="footer-brand"&gt;
+      &lt;img src="/isotipoBlanco.png" alt=""&gt; COPLERO AI
+    &lt;/div&gt;
     &lt;div class="footer-contact"&gt;
       🌐 www.coplero.com&lt;br&gt;
       📲 Contacto: +54 9 387 560 1433
@@ -1256,7 +1413,7 @@ Use multiple horizontal section cards arranged vertically to organize the inform
 
 Branding
 
-Include the COPLERO logo in the header-right or footer-left (as provided).
+Include the COPLERO logo (LogoYTituloBlanco.png — white logo on dark background) in the header-right or footer-left (as provided).
 
 No other logos, no icons as bullets.
 
@@ -1359,8 +1516,9 @@ VISUAL IDENTITY (MUST FOLLOW):
 - Grain texture: SVG feTurbulence filter with opacity 0.05-0.08
 - Typography: Inter / SF Pro / Circular (clean geometric sans-serif)
 - Brand colors: #001B66 (base), #1718FF (accent), #FFFFFF (text)
+- Logo: Use LogoYTituloBlanco.png (white logo + text "coplero") in header-right. For footer use isotipoBlanco.png (white sun icon only) next to "COPLERO AI" text.
 - Cards/panels: semi-opaque dark (rgba(255,255,255,0.08)), rounded corners (12px), thin white strokes (1px solid rgba(255,255,255,0.2))
-- Logo: Coplero.png in header-right or footer-left. NO other logos.
+- NO logos/icons as bullet points. Use small round dots (•) only.
 
 LAYOUT REQUIREMENTS:
 - 16:9 format (1920×1080px or scale proportionally)
@@ -1368,7 +1526,7 @@ LAYOUT REQUIREMENTS:
 - Multiple horizontal section cards arranged vertically
 - Structured cards for: Incluye (with subsections), Cobertura de actividades, Entrega del material
 - Large highlighted investment card: background rgba(23,24,255,0.15), border 2px solid #1718FF, centered text, very visible
-- Footer with: "COPLERO AI", "🌐 www.coplero.com", "📲 Contacto: +54 9 387 560 1433"
+- Footer with: "COPLERO AI" (with isotipoBlanco.png), "🌐 www.coplero.com", "📲 Contacto: +54 9 387 560 1433"
 
 HIERARCHY:
 1. Small label (14px, uppercase, letter-spacing 3px, rgba white 0.6)
@@ -1396,16 +1554,16 @@ ABSOLUTE RULES:
 Exact text to include (Spanish):
 [INSERTAR TEXTO EXACTO DEL PROMPT DE IMAGEN ARRIBA, SECCIÓN "Exact text to include"]
 
-Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter.</pre>
+Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter. Logo images: /LogoYTituloBlanco.png and /isotipoBlanco.png.</pre>
         </div>
 
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         5. RECURSOS DESCARGABLES
+    <!-- ══════════════════════════════════════════
+         6. RECURSOS DESCARGABLES
     ═══════════════════════════════════════════════ -->
-    <div class="section-title">5 · Recursos Descargables</div>
+    <div class="section-title">6 · Recursos Descargables</div>
 
     <div class="info-grid">
       <div class="info-block">
@@ -1416,10 +1574,12 @@ Output: Complete HTML file with inline CSS. No external dependencies. Include gr
         </div>
       </div>
       <div class="info-block">
-        <div class="info-block__label">Assets</div>
-        <div style="margin-top: 0.5rem;">
-          <a href="/Coplero.png" download class="download-link">Logo Coplero (PNG, transparente)</a><br>
-          <a href="/reel/" class="download-link">Videos de Portfolio</a>
+        <div class="info-block__label">Logos (4 archivos)</div>
+        <div style="margin-top: 0.5rem; font-size: 0.8rem;">
+          <a href="/LogoYTituloBlanco.png" download class="download-link">LogoYTituloBlanco.png</a> (fondo oscuro)<br>
+          <a href="/LogoYTituloNegro.png" download class="download-link">LogoYTituloNegro.png</a> (fondo claro)<br>
+          <a href="/isotipoBlanco.png" download class="download-link">isotipoBlanco.png</a> (sol blanco)<br>
+          <a href="/isotipoNegro.png" download class="download-link">isotipoNegro.png</a> (sol negro)
         </div>
       </div>
       <div class="info-block">
@@ -1446,7 +1606,7 @@ Output: Complete HTML file with inline CSS. No external dependencies. Include gr
     <!-- FOOTER -->
     <footer class="doc-footer">
       <p>© 2026 Coplero · A.I. Content Production Company · Argentina</p>
-      <img src="/Coplero.png" alt="Coplero" class="doc-footer__logo">
+      <img src="/LogoYTituloBlanco.png" alt="Coplero" class="doc-footer__logo" style="filter: brightness(0) invert(1); background: var(--blue-primary); padding: 0.25rem 0.5rem; border-radius: 3px;">
     </footer>
 
   </div>
