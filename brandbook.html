@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPLERO — Brandbook</title>
+  <meta name="description" content="Brandbook oficial de Coplero — A.I. Content Production Company. Guía de estilos, colores, tipografía y prompts para IA.">
+
+  <!-- Fonts: clean geometric sans-serif (Inter / SF Pro / Helvetica-like) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+    :root {
+      --blue-primary: #001B66;
+      --blue-electric: #1718FF;
+      --gray-light: #E3E5F3;
+      --white: #FFFFFF;
+      --off-white: #FAFAFA;
+      --light-gray: #F5F5F7;
+      --text-dark: #1A1A1A;
+      --text-mid: #555555;
+      --border: #E0E0E0;
+      --red: #CC0000;
+      --font-body: 'Inter', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      --font-accent: 'Playfair Display', 'Fraunces', Georgia, serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LAYOUT ─── */
+    .page { max-width: 960px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
+
+    /* ─── HEADER BAR ─── */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--blue-primary);
+      margin-bottom: 2.5rem;
+    }
+    .doc-header__brand { display: flex; align-items: center; gap: 1rem; }
+    .doc-header__logo { height: 48px; width: auto; }
+    .doc-header__text h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .doc-header__text p {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.15rem;
+    }
+    .doc-header__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-mid);
+      text-align: right;
+      padding-top: 0.5rem;
+    }
+
+    /* ─── SECTION TITLES ─── */
+    .section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--blue-electric);
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title:first-child { margin-top: 0; }
+
+    /* ─── CARDS / BOXED SECTIONS ─── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card--highlight {
+      background: linear-gradient(135deg, rgba(23, 24, 255, 0.04), rgba(0, 27, 102, 0.06));
+      border-left: 3px solid var(--blue-electric);
+    }
+
+    /* ─── COLOR TABLE ─── */
+    .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .color-swatch-block { text-align: center; }
+    .color-swatch-box {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .color-swatch-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-mid); }
+    .color-swatch-hex { font-size: 0.85rem; font-weight: 600; margin-top: 0.2rem; }
+
+    /* ─── TYPOGRAPHY DEMO ─── */
+    .type-demo { margin: 1.5rem 0; }
+    .type-demo__label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-mid);
+      margin-bottom: 0.3rem;
+    }
+    .type-demo__display {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--blue-primary);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .type-demo__body { font-size: 1rem; color: var(--text-dark); line-height: 1.6; }
+    .type-demo__accent {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--blue-electric);
+    }
+
+    /* ─── PROMPT BLOCK ─── */
+    .prompt-block {
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+    .prompt-block__label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--blue-electric);
+      margin-bottom: 0.75rem;
+    }
+    .prompt-block pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+      margin: 0;
+    }
+
+    /* ─── CODE BLOCK (HTML/CSS REFERENCE) ─── */
+    .code-block {
+      background: #1A1A1A;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+    .code-block__label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .code-block pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: #E0E0E0;
+      white-space: pre-wrap;
+      margin: 0;
+    }
+
+    /* ─── VISUAL SPEC TABLE ─── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 1.25rem 0;
+    }
+    .spec-table th {
+      background: var(--blue-primary);
+      color: white;
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .spec-table td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .spec-table tr:nth-child(even) td { background: var(--light-gray); }
+
+    /* ─── COMPARISON TABLE ─── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: 1.5rem 0;
+    }
+    .compare-table th {
+      background: var(--blue-primary);
+      color: white;
+      padding: 0.7rem 0.8rem;
+      text-align: left;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .compare-table td {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .compare-table tr:nth-child(even) td { background: var(--light-gray); }
+
+    /* ─── LIST STYLES ─── */
+    .styled-list { list-style: none; padding: 0; }
+    .styled-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+    .styled-list li::before {
+      content: "•";
+      color: var(--blue-electric);
+      font-weight: 700;
+      margin-right: 0.6rem;
+    }
+
+    /* ─── DIVIDERS ─── */
+    .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+    .divider--thick { height: 2px; background: var(--blue-primary); margin: 2rem 0; }
+    .divider--gradient {
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue-primary), var(--blue-electric), #8000FF);
+      margin: 2rem 0;
+    }
+
+    /* ─── INFO GRID ─── */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .info-block { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
+    .info-block__label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-mid);
+      margin-bottom: 0.3rem;
+    }
+    .info-block__value { font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+
+    /* ─── LINKS ─── */
+    .download-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--blue-electric);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .download-link:hover { border-bottom-color: var(--blue-electric); }
+
+    /* ─── CODE INLINE ─── */
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82em;
+      background: rgba(23, 24, 255, 0.08);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      color: var(--blue-primary);
+    }
+
+    /* ─── NOTE ─── */
+    .note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
+
+    /* ─── ABSOLUTE RULES BOX ─── */
+    .rules-box {
+      background: var(--white);
+      border: 1px solid var(--red);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .rules-box__title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+    .rules-box ul { list-style: none; padding: 0; }
+    .rules-box li {
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+      color: var(--text-dark);
+    }
+    .rules-box li::before {
+      content: "✕";
+      color: var(--red);
+      font-weight: 700;
+      margin-right: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    /* ─── BACK LINK ─── */
+    .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      padding: 0.4rem 0;
+    }
+    .back-link:hover { color: var(--blue-electric); }
+
+    /* ─── FOOTER ─── */
+    .doc-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--blue-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-footer p { font-size: 0.75rem; color: var(--text-mid); }
+    .doc-footer__logo { height: 32px; width: auto; }
+
+    /* ─── SUBTITLE ─── */
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blue-primary);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* ─── GRADIENT DEMO ─── */
+    .gradient-demo {
+      height: 120px;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border: 1px solid var(--border);
+    }
+    .gradient-demo--ink-cloud {
+      background: radial-gradient(ellipse at 30% 50%, rgba(23, 24, 255, 0.25) 0%, rgba(0, 27, 102, 0.15) 40%, rgba(100, 0, 200, 0.1) 70%, transparent 100%);
+    }
+    .gradient-demo--subtle {
+      background: linear-gradient(135deg, rgba(0, 27, 102, 0.06) 0%, rgba(23, 24, 255, 0.04) 100%);
+    }
+
+    /* ─── TEMPLATE SECTION ─── */
+    .template-section { margin: 2.5rem 0; }
+    .template-header {
+      background: var(--blue-primary);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .template-header h3 { font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; }
+    .template-header .tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: rgba(255,255,255,0.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+    }
+    .template-body { background: var(--white); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; }
+
+    /* ─── BLOCK LABEL ─── */
+    .block-label {
+      display: inline-block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      background: var(--blue-electric);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.5rem;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { max-width: 100%; padding: 1rem; }
+      .back-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Back to Main Site -->
+    <a href="/" class="back-link">← Volver a coplero.ai</a>
+
+    <!-- ─── DOCUMENT HEADER ─── -->
+    <header class="doc-header">
+      <div class="doc-header__brand">
+        <img src="/Coplero.png" alt="Coplero" class="doc-header__logo">
+        <div class="doc-header__text">
+          <h1>COPLERO</h1>
+          <p>A.I. Content Production Company · Brandbook</p>
+        </div>
+      </div>
+      <div class="doc-header__label">
+        Documento oficial<br>Versión 1.0 · 2026
+      </div>
+    </header>
+
+    <div class="divider--thick"></div>
+
+    <!-- ═══════════════════════════════════════════
+         1. IDENTIDAD DE MARCA
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">1 · Identidad de Marca</div>
+
+    <div class="card">
+      <h2 class="subtitle">¿Qué es Coplero?</h2>
+      <p class="type-demo__body">
+        Productora audiovisual argentina impulsada por inteligencia artificial. Combinamos tecnología de vanguardia con una metodología de trabajo precisa y eficiente. Priorizamos profesionalismo, realismo, velocidad y calidad en cada proyecto.
+      </p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <div class="info-block__label">Tagline</div>
+        <div class="info-block__value">A.I. Content Production Company</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Origen</div>
+        <div class="info-block__value">Argentina · "desde el sur"</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">WhatsApp</div>
+        <div class="info-block__value">+54 387 560 1433</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Web / Instagram</div>
+        <div class="info-block__value">
+          <a href="https://www.coplero.com" class="download-link">coplero.com</a><br>
+          <a href="https://www.instagram.com/copleroai/" class="download-link">@copleroai</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitle">Servicios</h2>
+      <ul class="styled-list">
+        <li>Videos publicitarios generados/asistidos por IA (spots, ads, virales)</li>
+        <li>UGC & Avatares IA (contenido estilo user-generated con avatares hiperrealistas)</li>
+        <li>Paquetes de contenido social: posts, reels, historias — producción mensual recurrente</li>
+        <li>Estrategia de contenido + guionización</li>
+      </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         2. IDENTIDAD VISUAL
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">2 · Identidad Visual</div>
+
+    <!-- Logos -->
+    <div class="card">
+      <h2 class="subtitle">Logotipo Oficial</h2>
+      <p class="note">El único logo autorizado es Coplero.png (formato PNG, fondo transparente, blanco). NO usar SVGs como logos.</p>
+
+      <div style="text-align: center; padding: 2rem; background: var(--blue-primary); border-radius: 8px; margin: 1rem 0;">
+        <img src="/Coplero.png" alt="Coplero Logo" style="height: 80px; width: auto;">
+      </div>
+
+      <div style="text-align: center; padding: 2rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; margin: 1rem 0;">
+        <img src="/Coplero.png" alt="Coplero Logo Dark" style="height: 60px; width: auto; filter: brightness(0);">
+      </div>
+
+      <p style="margin-top: 1rem;">
+        <a href="/Coplero.png" download class="download-link">Descargar Coplero.png</a> ·
+        <a href="/BrandbookCoplero.pdf" download class="download-link">Brandbook PDF completo</a> ·
+        <a href="/brandbook.txt" download class="download-link">Brandbook texto plano</a>
+      </p>
+    </div>
+
+    <!-- Usos prohibidos -->
+    <div class="rules-box">
+      <div class="rules-box__title">⚠ Usos Prohibidos del Logotipo</div>
+      <ul>
+        <li>No modificar el color del signo</li>
+        <li>No modificar la tipografía oficial</li>
+        <li>No deformar la marca</li>
+        <li>No usar sobre colores institucionales sin contraste suficiente</li>
+        <li>No usar versión negativa sobre fondos neutros claros</li>
+        <li>No usar archivos SVG como logotipo (solo PNG)</li>
+      </ul>
+    </div>
+
+    <!-- Paleta Cromática -->
+    <div class="card">
+      <h2 class="subtitle">Paleta Cromática Oficial</h2>
+      <div class="color-grid">
+        <div class="color-swatch-block">
+          <div class="color-swatch-box" style="background-color: #001B66;"></div>
+          <div class="color-swatch-label">Azul Primario</div>
+          <div class="color-swatch-hex">#001B66</div>
+        </div>
+        <div class="color-swatch-block">
+          <div class="color-swatch-box" style="background-color: #1718FF;"></div>
+          <div class="color-swatch-label">Azul Eléctrico</div>
+          <div class="color-swatch-hex">#1718FF</div>
+        </div>
+        <div class="color-swatch-block">
+          <div class="color-swatch-box" style="background-color: #E3E5F3; border: 1px solid #ccc;"></div>
+          <div class="color-swatch-label">Gris Claro</div>
+          <div class="color-swatch-hex">#E3E5F3</div>
+        </div>
+        <div class="color-swatch-block">
+          <div class="color-swatch-box" style="background-color: #000000;"></div>
+          <div class="color-swatch-label">Negro</div>
+          <div class="color-swatch-hex">#000000</div>
+        </div>
+      </div>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Color</th>
+            <th>HEX</th>
+            <th>RGB</th>
+            <th>CMYK</th>
+            <th>Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Azul Primario</strong></td>
+            <td><code>#001B66</code></td>
+            <td>R0 G27 B102</td>
+            <td>C100 M74 Y0 K60</td>
+            <td>Fondo web, textos base</td>
+          </tr>
+          <tr>
+            <td><strong>Azul Eléctrico</strong></td>
+            <td><code>#1718FF</code></td>
+            <td>R23 G24 B255</td>
+            <td>C91 M91 Y0 K0</td>
+            <td>Acentos, enlaces, highlights</td>
+          </tr>
+          <tr>
+            <td><strong>Gris Claro</strong></td>
+            <td><code>#E3E5F3</code></td>
+            <td>R227 G229 B243</td>
+            <td>C7 M6 Y0 K5</td>
+            <td>Textos web, fondos claros</td>
+          </tr>
+          <tr>
+            <td><strong>Negro</strong></td>
+            <td><code>#000000</code></td>
+            <td>R0 G0 B0</td>
+            <td>C0 M0 Y0 K100</td>
+            <td>Textos en documentos claros</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Gradientes Coplero -->
+    <div class="card">
+      <h2 class="subtitle">Gradientes Coplero (para documentos generados por IA)</h2>
+      <p class="note">Usar con opacidad extremadamente baja para no interferir con la legibilidad.</p>
+
+      <div class="gradient-demo gradient-demo--ink-cloud"></div>
+      <p class="type-demo__label">Estilo "Ink Cloud" — deep indigo / purple with cyan edges (para infografías, estrategias, propuestas)</p>
+
+      <div class="gradient-demo gradient-demo--subtle"></div>
+      <p class="type-demo__label">Estilo Sutil — soft indigo / blue tones (para recibos, documentos formales)</p>
+    </div>
+
+    <!-- Tipografía -->
+    <div class="card">
+      <h2 class="subtitle">Tipografía Oficial</h2>
+
+      <div class="type-demo" style="margin-top: 1.5rem;">
+        <div class="type-demo__label">Display — Darker Grotesque (Web) / Helvetica Neue (Fallback)</div>
+        <div class="type-demo__display">COPLERO · TÍTULOS BRUTALES</div>
+        <p class="note">Pesos: 800, 900 · Tracking: -0.04em · Text-transform: uppercase · Clamp() para tamaños</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="type-demo">
+        <div class="type-demo__label">Body — Helvetica Neue (Principal) / Inter / SF Pro (Fallback)</div>
+        <div class="type-demo__body">
+          Texto corpo, descripciones y copy general. Pesos: Bold (700), Medium (500), Light (300). Clean geometric sans-serif para máxima legibilidad en documentos.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="type-demo">
+        <div class="type-demo__label">Editorial Accent — Fraunces Italic (Web) / Playfair Display Italic (Fallback)</div>
+        <div class="type-demo__accent">Las palabras enfatizadas deben ir en itálica serif para marcar contraste.</div>
+        <p class="note">Uso: <em>vende</em>, <em>atención</em>, <em>impacto</em>, <em>mensaje</em> — siempre en <code>&lt;em&gt;</code></p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         3. DIRECTRICES DE DISEÑO
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">3 · Directrices de Diseño</div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <div class="info-block__label">Filosofía</div>
+        <div class="info-block__value">Cinematic dark editorial + brutalismo tipográfico argentino</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Elemento distintivo</div>
+        <div class="info-block__value">El Sol (reinterpretación del sol argentino → letra C)</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Textura global</div>
+        <div class="info-block__value">Grain (SVG feTurbulence, opacidad 8%)</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Cursor</div>
+        <div class="info-block__value">Custom (sol que sigue el mouse) — NO cursor: default</div>
+      </div>
+    </div>
+
+    <div class="rules-box">
+      <div class="rules-box__title">⚠ Prohibiciones Absolutas en Diseño</div>
+      <ul>
+        <li>No usar Inter, Roboto, Arial como fuente principal</li>
+        <li>No usar gradientes púrpura o paletas no autorizadas</li>
+        <li>No layouts genéricos Bootstrap-style</li>
+        <li>No cambiar la paleta de azules oficial</li>
+        <li>No usar <code>cursor: default</code> en desktop</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitle">Copy Guidelines</h2>
+      <div class="info-grid">
+        <div class="info-block">
+          <div class="info-block__label">Idioma</div>
+          <div class="info-block__value">Español argentino (ES-AR) · Voseo</div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__label">Tono</div>
+          <div class="info-block__value">Directo, con actitud, orientado a resultados</div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__label">Headers</div>
+          <div class="info-block__value">Uppercase vía CSS, no hardcoded</div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__label">Números</div>
+          <div class="info-block__value">Palabras en copy, cifras en bullets</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         4. PLANTILLAS PARA AGENTES DE IA
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">4 · Plantillas para Agentes de IA</div>
+    <p class="note" style="margin-bottom: 1.5rem;">
+      Cada plantilla tiene 4 bloques estructurados para que cualquier agente de IA (imagen o código) pueda generar documentos con identidad Coplero.<br>
+      <strong>Agente Imagen</strong>: copia el <em>Image Gen Prompt</em> verbatim → genera PNG/JPG.<br>
+      <strong>Agente Código</strong>: lee <em>Visual Spec</em> + <em>HTML/CSS Reference</em> → genera HTML/CSS funcional.
+    </p>
+
+    <!-- COMPARISON TABLE -->
+    <div class="card">
+      <h2 class="subtitle">Comparativa Rápida de Plantillas</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Plantilla</th>
+            <th>Formato</th>
+            <th>Uso</th>
+            <th>Background</th>
+            <th>Orientación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Recibo de Pago</strong></td>
+            <td>Documento formal</td>
+            <td>Recibos, comprobantes, facturas</td>
+            <td>Sutil indigo/blue, fondo blanco/light gray</td>
+            <td>Vertical (A4 / 4:5)</td>
+          </tr>
+          <tr>
+            <td><strong>Infografía Estrategia</strong></td>
+            <td>Infografía planificación</td>
+            <td>Ideas contenido, estrategias redes</td>
+            <td>Ink cloud gradient, dark cards</td>
+            <td>Horizontal (16:9)</td>
+          </tr>
+          <tr>
+            <td><strong>Propuesta Evento</strong></td>
+            <td>Proposal / Presupuesto</td>
+            <td>Cobertura audiovisual, presupuestos</td>
+            <td>Ink cloud gradient, dark panels</td>
+            <td>Horizontal (16:9)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         TEMPLATE 1: RECIBO DE PAGO
+    ═══════════════════════════════════════════════ -->
+    <div class="template-section">
+      <div class="template-header">
+        <h3>Template 1 — Recibo de Pago Premium</h3>
+        <span class="tag">Vertical · A4/4:5</span>
+      </div>
+      <div class="template-body">
+
+        <span class="block-label">Visual Spec (para agente de código)</span>
+        <table class="spec-table">
+          <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Formato</strong></td><td>Vertical — A4 (210×297mm) o relación 4:5 (800×1000px)</td></tr>
+            <tr><td><strong>Background</strong></td><td>Fondo blanco (#FFFFFF) o very light gray (#F5F5F7). Gradiente Coplero sutil (soft indigo/blue) opacidad extremadamente baja: <code>linear-gradient(135deg, rgba(0,27,102,0.06) 0%, rgba(23,24,255,0.04) 100%)</code></td></tr>
+            <tr><td><strong>Textura</strong></td><td>Opcional: grain texture muy suave (SVG feTurbulence, opacity 0.03)</td></tr>
+            <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Helvetica Neue. Jerarquía: Small label → Large title → Info blocks → Total → Signature</td></tr>
+            <tr><td><strong>Colors</strong></td><td>Texto: #1A1A1A · Acentos: #1718FF · Dividers: #E0E0E0 · Highlight total: rgba(23,24,255,0.08)</td></tr>
+            <tr><td><strong>Layout</strong></td><td>Left-aligned, structured grid tipo invoice profesional. Boxed sections, thin dividers. Logo top-right.</td></tr>
+            <tr><td><strong>Logo</strong></td><td>Coplero.png en top-right corner. No overuse. Firma de Juan Gutierrez en sección final.</td></tr>
+            <tr><td><strong>Special</strong></td><td>Highlighted box para monto total. Signature area al final. Thin lines entre secciones.</td></tr>
+          </tbody>
+        </table>
+
+        <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
+        <div class="code-block">
+          <div class="code-block__label">HTML + CSS inline para recibo base</div>
+          <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;style&gt;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .header { display: flex; justify-content: space-between; border-bottom: 2px solid #001B66; padding-bottom: 1rem; margin-bottom: 2rem; }
+    .logo { height: 40px; }
+    .title { font-size: 1.5rem; font-weight: 700; color: #001B66; text-transform: uppercase; letter-spacing: 0.1em; }
+    .subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #555; }
+    .section { margin: 1.5rem 0; padding: 1rem; border: 1px solid #E0E0E0; border-radius: 6px; }
+    .total-box { background: rgba(23,24,255,0.08); border: 1px solid #1718FF; border-radius: 6px; padding: 1rem; text-align: center; margin: 1.5rem 0; }
+    .total-amount { font-size: 2rem; font-weight: 700; color: #001B66; }
+    .divider { height: 1px; background: #E0E0E0; margin: 1rem 0; }
+    .signature { margin-top: 2rem; text-align: right; }
+    .signature img { height: 60px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="header"&gt;
+    &lt;div&gt;
+      &lt;div class="subtitle"&gt;Comprobante de Pago&lt;/div&gt;
+      &lt;div class="title"&gt;RECIBO&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;img src="Coplero.png" class="logo" alt="Coplero"&gt;
+  &lt;/div&gt;
+
+  &lt;div class="section"&gt;
+    &lt;!-- Info block content here --&gt;
+  &lt;/div&gt;
+
+  &lt;div class="total-box"&gt;
+    &lt;div class="subtitle"&gt;Total Pagado&lt;/div&gt;
+    &lt;div class="total-amount"&gt;$XX.XXXX ARS&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="signature"&gt;
+    &lt;img src="signature.png" alt="Firma Juan Gutierrez"&gt;
+    &lt;div style="font-size:0.8rem; color:#555;"&gt;Juan Gutierrez&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+
+        <span class="block-label">Image Gen Prompt (verbatim para agente imagen)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt verbatim para IA image generation:</div>
+          <pre>Create a premium, modern payment receipt document that combines a formal financial receipt layout with COPLERO's visual identity. The design should look like an official receipt or invoice, while maintaining a subtle, elegant, tech-forward Coplero aesthetic. Format must be vertical (A4 or 4:5 ratio), highly readable and professional.
+
+Absolute rules (must follow)
+- Do NOT invent any data, names, amounts, or dates beyond what is provided.
+- Do NOT distort text or reduce readability.
+- Do NOT use decorative icons as bullet points.
+- Keep all text perfectly crisp, aligned, and professional.
+- The document must clearly look like a valid payment receipt.
+
+Background & style
+- Use a very subtle Coplero-style gradient (soft indigo / blue tones), extremely low opacity so it does NOT interfere with readability.
+- Main background should remain clean, light, and document-like (white or very light gray).
+- Optional: very soft grain texture, minimal.
+- Use thin dividers and subtle lines to separate sections.
+
+Typography & layout
+- Typography: clean geometric sans-serif (Inter / SF Pro / Helvetica-like).
+- Hierarchy: Small header label → Large title → Structured information blocks → Highlighted total amount → Signature area.
+- Use a structured grid similar to a professional invoice.
+- Left aligned layout with strong spacing and margins.
+- Use boxed sections or subtle separators for clarity.
+
+Branding
+- Include the COPLERO logo in the top-right corner (as provided).
+- Do NOT overuse branding — keep it minimal and professional.
+- Include the signature image of Juan Gutierrez in the signature section.
+
+UI design guidance
+- The layout should resemble a professional receipt / invoice, a legal acknowledgment document, clean and trustworthy.
+- Use a highlighted box or emphasis style for the total amount paid.
+- Include a clear signature section at the bottom.
+
+Exact text to include (Spanish)
+[INSERTAR TEXTO EXACTO PROPORCIONADO POR EL CLIENTE]</pre>
+        </div>
+
+        <span class="block-label">Code Agent Prompt (para Claude / GPT generar nuevo HTML)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt para agente de código (Claude/GPT):</div>
+          <pre>Create a premium vertical payment receipt HTML page (A4/4:5 ratio, 800×1000px max-width) for COPLERO, an AI content production company from Argentina.
+
+VISUAL IDENTITY (MUST FOLLOW):
+- Background: white (#FFFFFF) or very light gray (#F5F5F7), with very subtle gradient: linear-gradient(135deg, rgba(0,27,102,0.06) 0%, rgba(23,24,255,0.04) 100%)
+- Typography: Inter / SF Pro / Helvetica Neue (clean geometric sans-serif)
+- Brand colors: #001B66 (primary blue), #1718FF (electric blue), #1A1A1A (text), #E0E0E0 (dividers)
+- Logo: Use Coplero.png (provided) in top-right corner only, minimal branding
+- Include Juan Gutierrez signature image in signature section
+
+LAYOUT REQUIREMENTS:
+- Left-aligned, structured grid like a professional invoice
+- Thin dividers (1px solid #E0E0E0) between sections
+- Boxed sections with subtle borders (1px solid #E0E0E0, 6px border-radius)
+- Highlighted total box: background rgba(23,24,255,0.08), border 1px solid #1718FF, centered text
+- Clear signature area at bottom right with signature image
+- Strong spacing and margins (generous whitespace)
+
+HIERARCHY:
+1. Small header label (uppercase, 0.7rem, letter-spacing 0.2em, #555)
+2. Large title (1.5rem, font-weight 700, #001B66, uppercase)
+3. Structured information blocks (0.9rem, #1A1A1A)
+4. Highlighted total amount (2rem, font-weight 700, #001B66)
+5. Signature area (image + name, 0.8rem, #555)
+
+ABSOLUTE RULES:
+- Do NOT invent any data beyond what is provided below
+- Keep all text crisp, aligned, perfectly readable
+- Do NOT use decorative icons
+- The document MUST look like a valid, professional receipt
+
+Exact text to include (Spanish):
+[INSERTAR TEXTO EXACTO PROPORCIONADO POR EL CLIENTE]
+
+Output: Complete HTML file with inline CSS. No external dependencies except Coplero.png logo.</pre>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         TEMPLATE 2: INFOGRAFÍA ESTRATEGIA
+    ═══════════════════════════════════════════════ -->
+    <div class="template-section">
+      <div class="template-header">
+        <h3>Template 2 — Infografía Estrategia de Contenido</h3>
+        <span class="tag">Horizontal · 16:9</span>
+      </div>
+      <div class="template-body">
+
+        <span class="block-label">Visual Spec (para agente de código)</span>
+        <table class="spec-table">
+          <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Formato</strong></td><td>Horizontal — 16:9 (1920×1080px o 1280×720px)</td></tr>
+            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud": <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code> sobre fondo #001B66</td></tr>
+            <tr><td><strong>Textura</strong></td><td>Grain texture ligero (SVG feTurbulence, opacity 0.05-0.08) sobre todo el fondo</td></tr>
+            <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Circular. Jerarquía: Very large title → Subtitle → Section headers → Content blocks</td></tr>
+            <tr><td><strong>Colors</strong></td><td>Fondo: #001B66 · Cards: rgba(255,255,255,0.08) con thin white strokes · Texto: #FFFFFF · Acentos: #1718FF</td></tr>
+            <tr><td><strong>Layout</strong></td><td>Left-aligned grid, generous spacing. Structured cards (dark semi-opaque, rounded corners, thin white border) para agrupar contenido. Separación visual entre Carruseles y Reels.</td></tr>
+            <tr><td><strong>Bullet points</strong></td><td>Simple neutral markers ONLY: small round dots (•) or short dashes (–). NO icons, NO logos, NO symbols.</td></tr>
+            <tr><td><strong>Special</strong></td><td>Agrupar ideas conceptualmente: eventos, producto, branding, experiencia. Micro-line opcional: "Estrategia · Producción · Contenido para redes sociales"</td></tr>
+          </tbody>
+        </table>
+
+        <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
+        <div class="code-block">
+          <div class="code-block__label">HTML + CSS inline para infografía base</div>
+          <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;style&gt;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      background: #001B66;
+      background-image: radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%);
+      color: #FFFFFF;
+      width: 1920px;
+      height: 1080px;
+      padding: 60px;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url("data:image/svg+xml,..."); /* feTurbulence grain */
+      opacity: 0.05; pointer-events: none;
+    }
+    .label { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.6); }
+    .title { font-size: 72px; font-weight: 800; letter-spacing: -2px; text-transform: uppercase; margin: 10px 0 5px; }
+    .subtitle { font-size: 24px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; color: #1718FF; margin-bottom: 16px; }
+    .card li { font-size: 18px; color: rgba(255,255,255,0.9); padding: 6px 0; list-style: none; }
+    .card li::before { content: "•"; color: #1718FF; margin-right: 10px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .micro-line { font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 2px; margin-top: 30px; text-align: center; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="label"&gt;Estrategia de Contenido&lt;/div&gt;
+  &lt;div class="title"&gt;Plan de Contenidos – [MARCA]&lt;/div&gt;
+  &lt;div class="subtitle"&gt;Ideas organizadas para redes sociales&lt;/div&gt;
+
+  &lt;div class="grid"&gt;
+    &lt;div class="card"&gt;
+      &lt;h3&gt;Carruseles&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Idea 1&lt;/li&gt;
+        &lt;li&gt;Idea 2&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="card"&gt;
+      &lt;h3&gt;Reels&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Idea 1&lt;/li&gt;
+        &lt;li&gt;Idea 2&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="micro-line"&gt;Estrategia · Producción · Contenido para redes sociales&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+
+        <span class="block-label">Image Gen Prompt (verbatim para agente imagen)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt verbatim para IA image generation:</div>
+          <pre>Create a premium, modern one-page content strategy infographic for a restaurant brand, matching COPLERO's visual identity using the reference style: organic blurred blue-indigo-purple gradient cloud, subtle film grain, minimal, elegant, tech-forward. The design must be highly readable with clean hierarchy in a 16:9 format.
+
+This infographic should organize and structure content ideas for Vincles, making them clear, strategic, and easy to execute.
+
+Absolute rules (must follow)
+- Do NOT use logos, icons, or symbols as bullet points.
+- Bullet points must be simple neutral markers only: small round dots (•), short dashes (–).
+- Do NOT invent additional content beyond what is provided.
+- Keep all text crisp and perfectly legible (no blur, no distortion).
+
+Background & readability (Coplero style but readable)
+- Use a Coplero-style gradient "ink cloud" background (deep indigo / purple with cyan edges), soft organic shape.
+- Add light grain texture, but keep typography sharp.
+- Ensure high contrast using semi-opaque dark cards with rounded corners and thin white strokes.
+
+Typography & layout
+- Typography: clean geometric sans-serif (Inter / SF Pro / Circular-like).
+- Hierarchy: Very large title → Subtitle → Section headers → Content blocks.
+- Left aligned grid, generous spacing, consistent margins.
+- Use structured cards to group content.
+
+UI design guidance
+- Design the layout like a content planning board used by a creative agency.
+- Organize ideas into clear strategic categories, not just lists.
+- Use visual separation between:
+  • Carruseles
+  • Reels
+- Additionally, group ideas conceptually when possible (eventos, producto, branding, experiencia).
+
+Exact text to include (Spanish)
+Top small label: "Estrategia de Contenido"
+Main title (largest): "Plan de Contenidos – Vincles"
+Subtitle: "Ideas organizadas para redes sociales"
+
+Section card: "CARRUSELES"
+• "Evento de noches de milonga"
+• "El after office que querías pero no sabías que existía"
+• "Banda en vivo"
+• "Razones para elegir Vincles para reuniones"
+• "Guía: los mejores momentos para visitar Vincles según lo que buscás"
+• "1 de mayo – locro"
+• "Así se ve Vincles hoy"
+• "Distintas mesas, distintos momentos"
+
+Section card: "REELS"
+• "Razones para elegir Vincles para reuniones (beneficios)"
+• "ASMR del plato del día + POV (definir plato)"
+• "Cocina nivel 2 — fuego en el salón (definir plato)"
+• "Top 3 tragos más raros de la carta"
+• "Evento de cumpleaños 70 (apertura del techo)"
+• "Invitación a la locriada del 1 de mayo"
+• "Qué son las noches de milonga"
+• "El plato que más se pide en la cena (definir plato)"
+
+Optional improvement (very important for better results)
+Ask the model to visually differentiate content types using subtle grouping or spacing, such as:
+• eventos
+• gastronomía
+• experiencia del lugar
+
+Design tone
+Modern, minimal, strategic, agency-level presentation. Clean, organized, and easy to scan.
+
+Optional micro-line (only if it fits cleanly):
+"Estrategia · Producción · Contenido para redes sociales"</pre>
+        </div>
+
+        <span class="block-label">Code Agent Prompt (para Claude / GPT generar nuevo HTML)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt para agente de código (Claude/GPT):</div>
+          <pre>Create a premium 16:9 infographic HTML page (1920×1080px) for COPLERO, an AI content production company from Argentina. This is a content strategy board for a client brand.
+
+VISUAL IDENTITY (MUST FOLLOW):
+- Background: #001B66 with "ink cloud" gradient: radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)
+- Grain texture: SVG feTurbulence filter with opacity 0.05-0.08 overlay on entire background
+- Typography: Inter / SF Pro / Circular (clean geometric sans-serif)
+- Brand colors: #001B66 (base), #1718FF (accent), #FFFFFF (text), rgba(255,255,255,0.08) (cards)
+- Cards: semi-opaque dark (rgba(255,255,255,0.08)), rounded corners (12px), thin white strokes (1px solid rgba(255,255,255,0.2))
+
+LAYOUT REQUIREMENTS:
+- 16:9 format (1920×1080px or scale proportionally)
+- Left-aligned grid with generous spacing and consistent margins
+- Structured cards to group content (Carruseles vs Reels clearly separated)
+- Visual grouping by concept: eventos, gastronomía, experiencia del lugar
+- Hierarchy: Very large title (72px, font-weight 800, uppercase, letter-spacing -2px) → Subtitle (24px, rgba white 0.8) → Section headers (18px, uppercase, #1718FF, letter-spacing 2px) → Content blocks (18px, rgba white 0.9)
+
+BULLET POINTS (CRITICAL):
+- Simple neutral markers ONLY: small round dots (•) or short dashes (–)
+- NO icons, NO logos, NO symbols as bullets
+- Use CSS ::before with content: "•" and color: #1718FF
+
+OPTIONAL:
+- Micro-line at bottom: "Estrategia · Producción · Contenido para redes sociales" (16px, rgba white 0.5, letter-spacing 2px, centered)
+
+ABSOLUTE RULES:
+- Do NOT invent content beyond what is provided below
+- Keep all text crisp and perfectly legible (no blur, no distortion)
+- High contrast: dark cards on dark gradient background
+
+Exact text to include (Spanish):
+Top small label: "Estrategia de Contenido"
+Main title (largest): "Plan de Contenidos – [MARCA_CLIENTE]"
+Subtitle: "Ideas organizadas para redes sociales"
+
+Section card: "CARRUSELES"
+[INSERTAR LISTA DE IDEAS]
+
+Section card: "REELS"
+[INSERTAR LISTA DE IDEAS]
+
+Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter.</pre>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         TEMPLATE 3: PROPUESTA EVENTO
+    ═══════════════════════════════════════════════ -->
+    <div class="template-section">
+      <div class="template-header">
+        <h3>Template 3 — Propuesta Cobertura de Evento</h3>
+        <span class="tag">Horizontal · 16:9</span>
+      </div>
+      <div class="template-body">
+
+        <span class="block-label">Visual Spec (para agente de código)</span>
+        <table class="spec-table">
+          <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Formato</strong></td><td>Horizontal — 16:9 (1920×1080px o 1280×720px)</td></tr>
+            <tr><td><strong>Background</strong></td><td>Gradiente "ink cloud": <code>radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)</code> sobre fondo #001B66. Título principal con overlay más oscuro para legibilidad garantizada.</td></tr>
+            <tr><td><strong>Textura</strong></td><td>Grain texture ligero (SVG feTurbulence, opacity 0.05-0.08)</td></tr>
+            <tr><td><strong>Typography</strong></td><td>Clean geometric sans-serif: Inter / SF Pro / Circular. Jerarquía: Very large bold title → Medium subtitle → Bold section headers → Regular body</td></tr>
+            <tr><td><strong>Colors</strong></td><td>Fondo: #001B66 · Panels: semi-opaque dark (rgba(255,255,255,0.08)) con rounded corners y thin white strokes · Texto: #FFFFFF · Acentos: #1718FF</td></tr>
+            <tr><td><strong>Layout</strong></td><td>Left-aligned grid, generous spacing. Múltiples sección cards apiladas verticalmente. Logo en header-right o footer-left. Info de contacto clara.</td></tr>
+            <tr><td><strong>Bullet points</strong></td><td>Simple neutral markers ONLY: small round dots (•), short dashes (–). NO icons, NO logos, NO brand marks como bullets.</td></tr>
+            <tr><td><strong>Special</strong></td><td>Investment card destacada (grande, muy visible). Glow accents o separadores sutiles para secciones importantes como deliverables e inversión. Footer: "Coplero AI", web, contacto.</td></tr>
+          </tbody>
+        </table>
+
+        <span class="block-label">HTML/CSS Reference (código mínimo funcional)</span>
+        <div class="code-block">
+          <div class="code-block__label">HTML + CSS inline para propuesta base</div>
+          <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;style&gt;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      background: #001B66;
+      background-image: radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%);
+      color: #FFFFFF;
+      width: 1920px;
+      height: 1080px;
+      padding: 60px;
+      position: relative;
+    }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+    .header-info { max-width: 70%; }
+    .label { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.6); }
+    .title { font-size: 80px; font-weight: 800; letter-spacing: -3px; text-transform: uppercase; margin: 10px 0; }
+    .subtitle { font-size: 28px; color: rgba(255,255,255,0.8); }
+    .logo { height: 50px; }
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; color: #1718FF; margin-bottom: 12px; }
+    .card li { font-size: 16px; color: rgba(255,255,255,0.9); padding: 5px 0; list-style: none; }
+    .card li::before { content: "•"; color: #1718FF; margin-right: 8px; }
+    .investment-card {
+      background: rgba(23,24,255,0.15);
+      border: 2px solid #1718FF;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .investment-label { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.6); }
+    .investment-amount { font-size: 48px; font-weight: 800; color: #FFFFFF; margin: 8px 0; }
+    .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); }
+    .footer-brand { font-size: 18px; font-weight: 600; }
+    .footer-contact { font-size: 14px; color: rgba(255,255,255,0.7); text-align: right; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="header"&gt;
+    &lt;div class="header-info"&gt;
+      &lt;div class="label"&gt;Propuesta de Cobertura Audiovisual&lt;/div&gt;
+      &lt;div class="title"&gt;Cobertura Audiovisual de Presentación&lt;/div&gt;
+      &lt;div class="subtitle"&gt;[INSTITUCIÓN] · Evento del [FECHA]&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;img src="Coplero.png" class="logo" alt="Coplero"&gt;
+  &lt;/div&gt;
+
+  &lt;div class="card"&gt;
+    &lt;h3&gt;Incluye&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Video Aftermovie del evento&lt;/li&gt;
+      &lt;li&gt;Video Reel para redes sociales&lt;/li&gt;
+      &lt;li&gt;Cobertura fotográfica completa&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;div class="investment-card"&gt;
+    &lt;div class="investment-label"&gt;Inversión&lt;/div&gt;
+    &lt;div class="investment-amount"&gt;$XX.000 ARS por alumno&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="footer"&gt;
+    &lt;div class="footer-brand"&gt;COPLERO AI&lt;/div&gt;
+    &lt;div class="footer-contact"&gt;
+      🌐 www.coplero.com&lt;br&gt;
+      📲 Contacto: +54 9 387 560 1433
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+
+        <span class="block-label">Image Gen Prompt (verbatim para agente imagen)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt verbatim para IA image generation:</div>
+          <pre>Create a premium, modern one-page event coverage proposal graphic for an audiovisual service, matching COPLERO's visual identity using the reference style: organic blurred blue-indigo-purple gradient cloud, subtle film grain, minimal, elegant, tech-forward. The design must be highly readable with clean hierarchy in 16:9 format.
+
+Absolute rules (must follow)
+
+Do NOT use the COPLERO logo, icon, spark symbol, or any brand mark as bullet points or list markers.
+
+Bullet points must be simple neutral markers only: small round dots (•), short dashes (–), or minimal generic circles.
+
+Do NOT invent contact details beyond the ones explicitly provided.
+
+Keep all text crisp and perfectly legible (no blur, no distortion, no weird letter shapes).
+
+Background & readability (Coplero style but readable)
+
+Use a Coplero-style gradient "ink cloud" background (deep indigo / purple with cyan edges), soft organic shape.
+
+Add light grain texture, but keep typography sharp.
+
+Ensure high contrast by placing text inside semi-opaque dark panels/cards with rounded corners and thin white strokes.
+
+Main title area must have a darker overlay behind it to guarantee readability.
+
+Typography & layout
+
+Typography: clean geometric sans-serif (Inter / SF Pro / Circular-like).
+
+Hierarchy: very large bold title, medium subtitle, bold section headers, regular body.
+
+Left aligned grid, generous spacing, consistent margins.
+
+Use multiple horizontal section cards arranged vertically to organize the information.
+
+Branding
+
+Include the COPLERO logo in the header-right or footer-left (as provided).
+
+No other logos, no icons as bullets.
+
+UI design guidance
+
+Design the layout like a modern creative agency proposal slide.
+
+Each section must be contained inside structured cards to make the information easy to scan.
+
+Maintain strong visual hierarchy and balanced whitespace.
+
+Use subtle glow accents or separators to highlight important sections like the investment and deliverables.
+
+Exact text to include (Spanish)
+
+Top small label:
+"Propuesta de Cobertura Audiovisual"
+
+Main title (largest):
+"Cobertura Audiovisual de Presentación"
+
+Subtitle:
+"Colegio Américo Vespucio · Evento del 18 de marzo"
+
+Intro description card:
+
+"Cobertura profesional de la presentación y actividades posteriores, registrando los momentos más importantes del evento con contenido audiovisual de alta calidad."
+
+Section card:
+"INCLUYE"
+
+Subsection:
+
+"🎥 Video Aftermovie del evento"
+
+• "1 video en formato horizontal"
+• "Estilo aftermovie cinematográfico"
+• "Resumen de los mejores momentos de la presentación"
+
+Subsection:
+
+"📱 Video Reel para redes sociales"
+
+• "1 video en formato vertical"
+• "Edición dinámica con efectos especiales potenciados con IA"
+• "Ideal para compartir en Instagram, TikTok y redes sociales"
+
+Subsection:
+
+"📸 Cobertura fotográfica completa"
+
+• "Fotografías ilimitadas durante todo el evento"
+• "Registro de todos los momentos importantes"
+
+Section card:
+"📍 Cobertura de actividades"
+
+• "Presentación principal"
+• "Foto grupal oficial"
+• "Caminata y festejo en el Monumento a Güemes"
+
+Section card:
+"💻 Entrega del material"
+
+• "Todo el contenido se entrega en formato digital"
+
+Large highlighted investment card (very visible):
+
+"INVERSIÓN"
+
+"$20.000 ARS por alumno"
+
+Footer section:
+
+"PRODUCE"
+
+"COPLERO AI"
+
+"🌐 www.coplero.com"
+
+"📲 Contacto: +54 9 387 560 1433"
+
+Footer small line:
+
+"COPLERO | Agencia Productora de Contenido"
+
+Optional micro-line (only if it fits cleanly):
+
+"Producción audiovisual · Edición profesional · Contenido para redes sociales"</pre>
+        </div>
+
+        <span class="block-label">Code Agent Prompt (para Claude / GPT generar nuevo HTML)</span>
+        <div class="prompt-block">
+          <div class="prompt-block__label">Prompt para agente de código (Claude/GPT):</div>
+          <pre>Create a premium 16:9 event proposal HTML page (1920×1080px) for COPLERO, an AI content production company from Argentina. This is a coverage proposal for an audiovisual event.
+
+VISUAL IDENTITY (MUST FOLLOW):
+- Background: #001B66 with "ink cloud" gradient: radial-gradient(ellipse at 30% 50%, rgba(23,24,255,0.25) 0%, rgba(0,27,102,0.15) 40%, rgba(100,0,200,0.1) 70%, transparent 100%)
+- Main title area: darker overlay behind title to guarantee readability (rgba(0,0,0,0.3) or similar)
+- Grain texture: SVG feTurbulence filter with opacity 0.05-0.08
+- Typography: Inter / SF Pro / Circular (clean geometric sans-serif)
+- Brand colors: #001B66 (base), #1718FF (accent), #FFFFFF (text)
+- Cards/panels: semi-opaque dark (rgba(255,255,255,0.08)), rounded corners (12px), thin white strokes (1px solid rgba(255,255,255,0.2))
+- Logo: Coplero.png in header-right or footer-left. NO other logos.
+
+LAYOUT REQUIREMENTS:
+- 16:9 format (1920×1080px or scale proportionally)
+- Left-aligned grid, generous spacing, consistent margins
+- Multiple horizontal section cards arranged vertically
+- Structured cards for: Incluye (with subsections), Cobertura de actividades, Entrega del material
+- Large highlighted investment card: background rgba(23,24,255,0.15), border 2px solid #1718FF, centered text, very visible
+- Footer with: "COPLERO AI", "🌐 www.coplero.com", "📲 Contacto: +54 9 387 560 1433"
+
+HIERARCHY:
+1. Small label (14px, uppercase, letter-spacing 3px, rgba white 0.6)
+2. Very large bold title (80px, font-weight 800, letter-spacing -3px, uppercase)
+3. Medium subtitle (28px, rgba white 0.8)
+4. Bold section headers (16px, uppercase, letter-spacing 2px, #1718FF)
+5. Regular body (16px, rgba white 0.9)
+
+BULLET POINTS (CRITICAL):
+- Simple neutral markers ONLY: small round dots (•) or short dashes (–)
+- NO icons, NO logos, NO brand marks as bullets
+- Use CSS ::before with content: "•" and color: #1718FF
+- Subsections can use emoji in the title (🎥, 📱, 📸) but NOT in bullet points
+
+SPECIAL SECTIONS:
+- "INVERSIÓN" card: Must be the most visually prominent element. Large amount text (48px, font-weight 800)
+- Use subtle glow accents or separators for deliverables and investment sections
+
+ABSOLUTE RULES:
+- Do NOT invent contact details beyond what is provided
+- Keep all text crisp and perfectly legible (no blur, no distortion)
+- High contrast: dark cards on dark gradient background
+- No COPLERO logo/icon/symbol as bullet points
+
+Exact text to include (Spanish):
+[INSERTAR TEXTO EXACTO DEL PROMPT DE IMAGEN ARRIBA, SECCIÓN "Exact text to include"]
+
+Output: Complete HTML file with inline CSS. No external dependencies. Include grain texture as inline SVG filter.</pre>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         5. RECURSOS DESCARGABLES
+    ═══════════════════════════════════════════════ -->
+    <div class="section-title">5 · Recursos Descargables</div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <div class="info-block__label">Documentos</div>
+        <div style="margin-top: 0.5rem;">
+          <a href="/BrandbookCoplero.pdf" download class="download-link">Brandbook Completo (PDF)</a><br>
+          <a href="/brandbook.txt" download class="download-link">Brandbook Texto Plano</a>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Assets</div>
+        <div style="margin-top: 0.5rem;">
+          <a href="/Coplero.png" download class="download-link">Logo Coplero (PNG, transparente)</a><br>
+          <a href="/reel/" class="download-link">Videos de Portfolio</a>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">TODO:USER</div>
+        <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-mid);">
+          WhatsApp: ✓ 5493875601433<br>
+          Redes: ✓ Instagram @copleroai, coplero.com<br>
+          OG Image: imagen 1200×630px para preview de links<br>
+          <span style="font-size:0.75rem;">(aparece al compartir link en WhatsApp/IG/FB)</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block__label">Stack Técnico</div>
+        <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-mid);">
+          Vite ^5.4 · GSAP ^3.12<br>
+          Lenis ^1.1 · Vanilla JS<br>
+          CSS moderno (layers, clamp)
+        </div>
+      </div>
+    </div>
+
+    <div class="divider--gradient"></div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+      <p>© 2026 Coplero · A.I. Content Production Company · Argentina</p>
+      <img src="/Coplero.png" alt="Coplero" class="doc-footer__logo">
+    </footer>
+
+  </div>
+</body>
+</html>
